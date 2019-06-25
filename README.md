@@ -1,13 +1,11 @@
-# [Substrate Collectables][main link]
+# [Substrate Verifiable Credentials][main link]
 > The interactive hands-on build-your-first-blockchain with [Substrate][] workshop
 
 [Getting Started Slides](https://docs.google.com/presentation/d/1dhaoLb5V2K_vDe4EJlUcKwePD1nMktr57fOdSo8bHns/edit#slide=id.g45ee0ba2ab_3_12)
 
-![A screenshot of Substrate kitties](./media/substrate-collectables.png)
-
 ## What is this?
 
-This is an interactive hands-on self-paced workshop. You will learn how to build your first blockchain using [Substrate][], the OpenSource [Rust][] Blockchain Development Kit by [Parity][]. Through the lessons of the workshop, you will build a collectables blockchain -- a chain that creates assets, and allows you to interact with and managing ownership of them.
+This is an interactive hands-on self-paced workshop. You will learn how to build your first blockchain using [Substrate][], the OpenSource [Rust][] Blockchain Development Kit by [Parity][]. Through the lessons of the workshop, you will build a verifiable credentials blockchain -- a chain that where identities can assign other identities credentials that other can then verify the idenity is holder of said credential.
 
 As such, this material will focus on the logic of building the said chain. It won't cover the networking, consensus or economic incentive aspects of blockchains. Fortunately, Substrate comes with decent networking and consensus engines built in, so we can just focus on the chain logic.
 
@@ -40,7 +38,7 @@ Substrate is a rapidly evolving project, which means that breaking changes may c
 
 Open source projects like Substrate and this workshop could not be successful without the collective minds and collaborative effort of the development community.
 
-The Substratekitties workshop stands on the backs of giants like [Cryptokitties](https://www.cryptokitties.co/), [Cryptozombies](https://cryptozombies.io/), [Docsify](https://docsify.js.org/), [Monaco Editor](https://microsoft.github.io/monaco-editor/), [David Revoy's Cat Avatar Generator](https://framagit.org/Deevad/cat-avatar-generator), and numerous volunteers to report errors and bugs along the way.
+This Workshops is a fork of the famous [Substratekitties workshop](https://github.com/substrate-developer-hub/substrate-collectables-workshop), which itself stands on the backs of giants like [Cryptokitties](https://www.cryptokitties.co/), [Cryptozombies](https://cryptozombies.io/), [Docsify](https://docsify.js.org/), [Monaco Editor](https://microsoft.github.io/monaco-editor/), [David Revoy's Cat Avatar Generator](https://framagit.org/Deevad/cat-avatar-generator), and numerous volunteers to report errors and bugs along the way.
 
 We hope this educational material teaches you something new, and in turn, you teach others too.
 

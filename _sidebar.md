@@ -18,7 +18,7 @@
     - [Storing a Structure](1/storing-a-structure.md)
     - [Viewing a Structure](1/viewing-a-structure.md)
 
-- [**#2 Kitties**](2/introduction.md)
+- [**#2 Verifiable Credentials**](2/introduction.md)
 
     - [Generating Random Data](2/generating-random-data.md)
     - [Creating an Event](2/creating-an-event.md)
@@ -34,34 +34,16 @@
     - [Buying a Kitty](3/buying-a-kitty.md)
     - [Breeding a Kitty](3/breeding-a-kitty.md)
     - [Playing our Game](3/playing-our-game.md)
-    
-- [**#4 Web-UI**](4/introduction.md)
 
-    - [Set Up Substrate UI](4/set-up-substrate-ui.md)
-    - [Explore](4/explore.md)
-    - [Creating Kitties](4/creating-kitties.md)
-    - [Rendering Kitties](4/rendering-kitties.md)
-
-- [**#5 Tests**](5/introduction.md)
+- [**#4 Tests**](5/introduction.md)
 
     - [Set Up Tests](5/setting-up-tests.md)
     - [Writing Tests](5/writing-tests.md)
     - [Testing Genesis](5/testing-genesis.md)
 
 - [**Extras**](Extras/)
-    - **Kitty Auction**
-        - [Introduction](Extras/Auction/introduction.md)
-        - [Creating an auction](Extras/Auction/creating-an-auction.md)
-        - [Bidding an auction](Extras/Auction/bidding-an-auction.md)
-        - [Finalizing an auction](Extras/Auction/finalizing-an-auction.md)
 
 - [Glossary](https://docs.substrate.dev/docs/glossary)
 - [Documentation](https://docs.substrate.dev/docs)
 - [Report an Issue](https://github.com/substrate-developer-hub/substrate-collectables-workshop/issues)
 - [r/substrate](https://www.reddit.com/r/substrate)
-
----
-
-- [:us: English](/README.md)
-- [:cn: 中文](/zh-cn/)
-- [:jp: 日本語](/ja-jp/)
