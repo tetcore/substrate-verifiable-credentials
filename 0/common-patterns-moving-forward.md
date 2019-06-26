@@ -28,13 +28,13 @@ Additionally, when you make changes to your node, the blocks produced in the pas
 However, if your changes to the runtime are significant, you may need to purge your chain of all the previous blocks with this handy command:
 
 ```bash
-./target/release/substratekitties purge-chain --dev
+./target/release/substrate-verifiable-credentials purge-chain --dev
 ```
 
 After all this, then you will be able to start up your node again, fresh, with all the latest changes:
 
 ```bash
-./target/release/substratekitties --dev
+./target/release/substrate-verifiable-credentials --dev
 ```
 
 Remember this pattern; you will be using it a lot.

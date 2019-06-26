@@ -2,11 +2,11 @@ Setting Up Tests
 ===
 
 Our tests will require support code, so let's start by creating its own `test` module.
-You can place this module inside `substratekitties.rs` as follows (alternatively, you can also refactor this out into its own `test.rs` file).
+You can place this module inside `substrate-verifiable-credentials.rs` as follows (alternatively, you can also refactor this out into its own `test.rs` file).
 
-**substratekitties<span>.</span>rs**
+**substrate-verifiable-credentials<span>.</span>rs**
 ```rust
-// Your substratekitties code 
+// Your substrate-verifiable-credentials code 
 
 #[cfg(test)]
 mod tests {

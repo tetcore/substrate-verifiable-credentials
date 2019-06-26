@@ -1,7 +1,7 @@
 Set the Price of a Kitty
 ===
 
-The core of our collectables chain is done! Users can now create and track ownership of their Substratekitties.
+The core of our collectables chain is done! Users can now create and track ownership of their substrate-verifiable-credentials.
 
 But if we want to make our runtime more like a game, we will need to introduce other functions like buying and selling. We will start those features by first enabling users to update the price of their kitty.
 

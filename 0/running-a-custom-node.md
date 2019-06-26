@@ -24,13 +24,13 @@ Let's go into the package folder and rename our project and project folders usin
 
 ```bash
 cd substrate-package
-./substrate-package-rename.sh substratekitties <your_name>
+./substrate-package-rename.sh substrate-verifiable-credentials <your_name>
 ```
 
-Then let's go into the now renamed `substratekitties` folder and build our pre-configured node:
+Then let's go into the now renamed `substrate-verifiable-credentials` folder and build our pre-configured node:
 
 ```bash
-cd substratekitties
+cd substrate-verifiable-credentials
 ./scripts/init.sh
 ./scripts/build.sh
 cargo build --release
@@ -39,7 +39,7 @@ cargo build --release
 This process may take a little while, but once it is done, you should be able to start your node with:
 
 ```bash
-./target/release/substratekitties --dev
+./target/release/substrate-verifiable-credentials --dev
 ```
 
 If you've done everything right so far, you should see blocks being produced.

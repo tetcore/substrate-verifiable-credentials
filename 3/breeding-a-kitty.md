@@ -61,7 +61,7 @@ After you press **Submit Transaction** and a block is created, you should see a 
 
 ![Image of the Sudid event](./assets/sudid-event.png)
 
-Finally, if we refresh the page and look at the extrinsics available in our Substratekitties module, we will find the `breedKitty()` function now appearing.
+Finally, if we refresh the page and look at the extrinsics available in our substrate-verifiable-credentials module, we will find the `breedKitty()` function now appearing.
 
 ![Image of the breed kitty function](./assets/breed-kitty-function.png)
 

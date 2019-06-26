@@ -7,13 +7,13 @@ After running:
 ```bash
 ./scripts/build.sh
 cargo build --release
-./target/release/substratekitties purge-chain --dev
+./target/release/substrate-verifiable-credentials purge-chain --dev
 ```
 
 We can start our node:
 
 ```bash
-./target/release/substratekitties --dev
+./target/release/substrate-verifiable-credentials --dev
 ```
 
 If we go back into the [Polkadot-JS Apps UI](https://polkadot.js.org/apps), we should see evidence of our node producing blocks.
@@ -23,7 +23,7 @@ If we go back into the [Polkadot-JS Apps UI](https://polkadot.js.org/apps), we s
 Go to the **Extrinsics** app, and using the "from extrinsic section" dropdown select:
 
 ```
-substratekitties > setValue(value)
+substrate-verifiable-credentials > setValue(value)
 ```
 
 Type in a value and press `Submit Transaction`:

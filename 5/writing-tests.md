@@ -17,11 +17,11 @@ fn it_works() {
 ```
 
 The command for executing this test is:
-`cargo test -p substratekitties-runtime substratekitties`
+`cargo test -p substrate-verifiable-credentials-runtime substrate-verifiable-credentials`
 
-You can read this line as run the `substratekitties` unit test which is inside the `substratekitties-runtime` sub-package. This verbose specification is necessary because your runtime is nested inside of another Substrate package. 
+You can read this line as run the `substrate-verifiable-credentials` unit test which is inside the `substrate-verifiable-credentials-runtime` sub-package. This verbose specification is necessary because your runtime is nested inside of another Substrate package. 
 
-Conversely, if want to test your entire runtime package, you can also run `cargo test -p substratekitties-runtime`.
+Conversely, if want to test your entire runtime package, you can also run `cargo test -p substrate-verifiable-credentials-runtime`.
 
 The test should pass with the following console output: 
 

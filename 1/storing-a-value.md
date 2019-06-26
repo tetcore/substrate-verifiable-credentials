@@ -90,7 +90,7 @@ If you try to compile the code samples we showed above without importing the req
 
 ```rust
 error[E0425]: cannot find function `ensure_signed` in this scope
-  --> src/substratekitties.rs:15:27
+  --> src/substrate-verifiable-credentials.rs:15:27
    |
 15 |             let _sender = ensure_signed(origin)?;
    |                           ^^^^^^^^^^^^^ not found in this scope

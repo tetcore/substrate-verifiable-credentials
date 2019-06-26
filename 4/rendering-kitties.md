@@ -10,7 +10,7 @@ We have built a custom React component for showing kitties. It is not so complic
 To add it, you must place the `KittyCards` folder in your `src` folder:
 
 ```
-substratekitties-ui/
+substrate-verifiable-credentials-ui/
 |
 +-- src/
     |
@@ -30,7 +30,7 @@ import { KittyCards } from './KittyCards';
 This will give you access to the `<KittyCards>` component:
 
 ```
-<KittyCards count={runtime.substratekitties.allKittiesCount} />
+<KittyCards count={runtime.substrate-verifiable-credentials.allKittiesCount} />
 ```
 
 ### Add the `Kitty` Type
@@ -65,7 +65,7 @@ Let's quickly walk through the parts of `/KittyCards/index.jsx` to show how we a
 We call the `KittyCard` component from our UI with:
 
 ```
-<KittyCards count={runtime.substratekitties.allKittiesCount} />
+<KittyCards count={runtime.substrate-verifiable-credentials.allKittiesCount} />
 ```
 
 This component is tied to the `allKittiesCount` bond, that will automatically update as the state of our blockchain changes.
@@ -79,7 +79,7 @@ When `allKittiesCount` changes, the `readyRender()` part of our `KittyCards` com
         for (var i=0; i < this.state.count; i++){
             kitties.push(
                 <div className="column" key={i}>
-                    <KittyWrap hash={runtime.substratekitties.allKittiesArray(i)} />
+                    <KittyWrap hash={runtime.substrate-verifiable-credentials.allKittiesArray(i)} />
                 </div>
             );
         }
@@ -98,8 +98,8 @@ class KittyWrap extends ReactiveComponent {
 
         return (
             <KittyCard
-                kitty={runtime.substratekitties.kitties(hash)}
-                owner={runtime.substratekitties.kittyOwner(hash)}
+                kitty={runtime.substrate-verifiable-credentials.kitties(hash)}
+                owner={runtime.substrate-verifiable-credentials.kittyOwner(hash)}
             />
         );
     }

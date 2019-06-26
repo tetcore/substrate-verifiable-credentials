@@ -8,8 +8,8 @@ Remember to start a clean version of your chain before jumping into the UI:
 ```
 ./scripts/build.sh
 cargo build --release
-./target/release/substratekitties purge-chain --dev
-./target/release/substratekitties --dev
+./target/release/substrate-verifiable-credentials purge-chain --dev
+./target/release/substrate-verifiable-credentials --dev
 ```
 
 ## Funding and Using Multiple Accounts
@@ -19,7 +19,7 @@ The first thing you want to do is transfer funds from Alice to a few of the prov
 Now we will go into the **Extrinsics** tab, where we will select our `create_kitty()` function in the UI:
 
 ```
-substratekitties > createKitty()
+substrate-verifiable-credentials > createKitty()
 ```
 
 For our test we will have Alice create 3 kitties, Bob create 2 kitties, and Charlie create 1.

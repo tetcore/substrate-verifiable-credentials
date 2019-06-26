@@ -10,8 +10,8 @@ We have introduced a custom structure to our chain, and while the Polkadot-JS Ap
 > ```
 > ./scripts/build.sh
 > cargo build --release
-> ./target/release/substratekitties purge-chain --dev
-> ./target/release/substratekitties --dev
+> ./target/release/substrate-verifiable-credentials purge-chain --dev
+> ./target/release/substrate-verifiable-credentials --dev
 > ```
 
 ## Registering a Custom Struct
@@ -36,7 +36,7 @@ Go back to the **Settings** app. Under the **Developer** section, you can either
 Now we can go and create a new kitty. In the **Extrinsics** app, go to:
 
 ```
-substratekitties > createKitty()
+substrate-verifiable-credentials > createKitty()
 ```
 
 Once you press submit, you should see the transaction finalize:

@@ -33,7 +33,7 @@ For this exercise, let's configure our genesis block to contain 2 initial kittie
 
 Let's start by importing some functions and types you'll be using to configure genesis.
 
-**substratekitties<span>.</span>rs**
+**substrate-verifiable-credentials<span>.</span>rs**
 ```rust
 use runtime_io::{with_storage, StorageOverlay, ChildrenStorageOverlay};
 ```

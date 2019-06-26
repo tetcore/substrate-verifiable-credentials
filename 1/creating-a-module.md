@@ -1,10 +1,10 @@
 Creating a Module
 ===
 
-To start, we need to create a new module for our runtime. For that we will work with an empty module template which we will place in a new `substratekitties.rs` file:
+To start, we need to create a new module for our runtime. For that we will work with an empty module template which we will place in a new `substrate-verifiable-credentials.rs` file:
 
 ```
-substratekitties
+substrate-verifiable-credentials
 |
 +-- runtime
     |
@@ -12,14 +12,14 @@ substratekitties
         |
         +-- lib.rs
         |
-        +-- * substratekitties.rs
+        +-- * substrate-verifiable-credentials.rs
 	|
 	+-- template.rs 
 ```
 
 > **Note:** There is also a `template.rs` file provided by the `substrate-node-template`. In general, you can start building your new modules with that template. However, for the purposes of working from scratch, we will start in a new file.
 
-**substratekitties<span>.</span>rs**
+**substrate-verifiable-credentials<span>.</span>rs**
 
 ```rust
 use support::{decl_storage, decl_module};
@@ -63,7 +63,7 @@ pub type BlockNumber = u64;
 pub type Nonce = u64;
 
 // Add this line
-mod substratekitties;
+mod substrate-verifiable-credentials;
 ...
 ```
 
@@ -78,7 +78,7 @@ impl sudo::Trait for Runtime {
 }
 
 // Add this line
-impl substratekitties::Trait for Runtime {}
+impl substrate-verifiable-credentials::Trait for Runtime {}
 ...
 ```
 
@@ -101,7 +101,7 @@ construct_runtime!(
 		Balances: balances,
 		Sudo: sudo,
 		// Add this line
-		Substratekitties: substratekitties::{Module, Call, Storage},
+		substrate-verifiable-credentials: substrate-verifiable-credentials::{Module, Call, Storage},
 	}
 );
 ...
@@ -125,7 +125,7 @@ If you have not already, follow the instructions on this page to set up your `su
 cargo build --release
 ```
 
-At the end of every section in this tutorial, your code should compile without errors. Most of the changes throughout this tutorial will take place in the `substratekitties.rs` file, but we will need to update the `lib.rs` file one more time at a later point.
+At the end of every section in this tutorial, your code should compile without errors. Most of the changes throughout this tutorial will take place in the `substrate-verifiable-credentials.rs` file, but we will need to update the `lib.rs` file one more time at a later point.
 
 Now it's time to start adding some of our own logic!
 

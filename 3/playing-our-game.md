@@ -3,7 +3,7 @@ Playing Our Game
 
 If you have made it this far, **congratulations**!
 
-You have now completed the development of your Substratekitties runtime module. If you followed our instructions carefully and made all of the right checks, your code should look something like what we have shown here.
+You have now completed the development of your substrate-verifiable-credentials runtime module. If you followed our instructions carefully and made all of the right checks, your code should look something like what we have shown here.
 
 This would be a good time to check your work using the Polkadot-JS Apps UI, ensuring you have not run into any errors or introduced any problems.
 
@@ -23,7 +23,7 @@ You should run the following manual tests:
 
 ## Challenge
 
-Our challenge to the reader is to extend the Substratekitties runtime and include additional functions and features you might want to see in this runtime module.
+Our challenge to the reader is to extend the substrate-verifiable-credentials runtime and include additional functions and features you might want to see in this runtime module.
 
 Here are some ideas:
 
@@ -41,7 +41,7 @@ Here are some ideas:
 
 What other ideas can you think of?
 
-In the next section we will be creating a custom UI for this game using Substrate JavaScript libraries. This custom UI is sensitive to changes in naming conventions, so you may need to copy the final Substratekitties code to ensure compatibility.
+In the next section we will be creating a custom UI for this game using Substrate JavaScript libraries. This custom UI is sensitive to changes in naming conventions, so you may need to copy the final substrate-verifiable-credentials code to ensure compatibility.
 
 <!-- tabs:start -->
 

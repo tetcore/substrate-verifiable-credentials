@@ -35,28 +35,28 @@ We should see a list of autocomplete options that our browser is aware of:
 
 ![An image of the runtime autocomplete](./assets/runtime-autocomplete.png)
 
-You might notice that these are our modules! Better yet, we can see `substratekitties`. Let's go deeper.
+You might notice that these are our modules! Better yet, we can see `substrate-verifiable-credentials`. Let's go deeper.
 
 ```
-runtime.substratekitties.
+runtime.substrate-verifiable-credentials.
 ```
 
-![An image of the substratekitties autocomplete](./assets/runtime-substratekitties-autocomplete.png)
+![An image of the substrate-verifiable-credentials autocomplete](./assets/runtime-substrate-verifiable-credentials-autocomplete.png)
 
 Here we can see all of the storage items our module exposes. Let's read from one of them:
 
 ![An image of querying the storage from browser console](./assets/storage-from-browser.png)
 
 ```javascript
-> runtime.substratekitties.allKittiesCount.then(console.log)
+> runtime.substrate-verifiable-credentials.allKittiesCount.then(console.log)
 
 8
 
-> runtime.substratekitties.allKittiesArray(0).then(console.log)
+> runtime.substrate-verifiable-credentials.allKittiesArray(0).then(console.log)
 
 Hash(32) [58, 60, 214, 1, 126, 230, 54, 236, 38, 35, 250, 236, 81, 248, 64, 83, 234, 152, 174, 39, 114, 24, 108, 34, 128, 61, 74, 136, 74, 38, 206, 48]
 
-> runtime.substratekitties.allKittiesArray(7).then(console.log)
+> runtime.substrate-verifiable-credentials.allKittiesArray(7).then(console.log)
 
 Hash(32) [162, 202, 153, 236, 47, 9, 134, 176, 171, 201, 222, 149, 39, 69, 7, 46, 241, 155, 195, 52, 211, 62, 170, 24, 130, 50, 252, 36, 126, 209, 153, 38]
 ```
@@ -74,7 +74,7 @@ Fortunately, for our example, we will use some of the components already built f
 In our example blockchain:
 
 ```
-<Pretty value={runtime.substratekitties.allKittiesCount}/>
+<Pretty value={runtime.substrate-verifiable-credentials.allKittiesCount}/>
 ```
 
 Would convert to:

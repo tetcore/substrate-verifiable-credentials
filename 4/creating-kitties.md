@@ -13,13 +13,13 @@ calls.
 
 ![An image of the `calls` autocomplete](./assets/calls-autocomplete.png)
 
-Again, we see that we automatically gain access to all of our modules, including the one we just created. Diving into the `substratekitties` we find:
+Again, we see that we automatically gain access to all of our modules, including the one we just created. Diving into the `substrate-verifiable-credentials` we find:
 
 ```
-calls.substratekitties.
+calls.substrate-verifiable-credentials.
 ```
 
-![An image of `calls.substratekitties` autocomplete](./assets/calls-substratekitties-autocomplete.png)
+![An image of `calls.substrate-verifiable-credentials` autocomplete](./assets/calls-substrate-verifiable-credentials-autocomplete.png)
 
 This is a list of all the functions we created in the `decl_module!` macro. Note that our private functions like `mint()` and `_transfer()` are not here since they are not supposed to be part of our public API.
 
@@ -30,7 +30,7 @@ So let's try to make a call to create a new kitty. To do that, we can make a `po
 ```javascript
 post({
     sender: '5GoKvZWG5ZPYL1WUovuHW3zJBWBP5eT8CbqjdRY4Q6iMaDtZ',
-    call: calls.substratekitties.createKitty()
+    call: calls.substrate-verifiable-credentials.createKitty()
 }).tie(console.log)
 ```
 

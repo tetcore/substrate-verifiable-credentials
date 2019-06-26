@@ -49,7 +49,7 @@ export class App extends ReactiveComponent {
 			<Divider hidden />
 			<TransactionsSegment />
 			<Divider hidden />
-			<SubstratekittiesSegment />
+			<substrate-verifiable-credentialsSegment />
 		</div>);
 	}
 }
@@ -363,7 +363,7 @@ class TransactionsSegment extends React.Component {
 	}
 }
 
-class SubstratekittiesSegment extends React.Component {
+class substrate-verifiable-credentialsSegment extends React.Component {
 	constructor() {
 		super()
 
@@ -378,7 +378,7 @@ class SubstratekittiesSegment extends React.Component {
 				<Icon name='paw' />
 				<Header.Content>
 					Substrate Kitties
-					{/* ACTION: Update `0` to be a `Pretty` value of `runtime.substratekitties.allKittiesCount` */}
+					{/* ACTION: Update `0` to be a `Pretty` value of `runtime.substrate-verifiable-credentials.allKittiesCount` */}
 					<Header.Subheader>There are 0 kitties purring.</Header.Subheader>
 				</Header.Content>
 			</Header>

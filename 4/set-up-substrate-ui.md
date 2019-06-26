@@ -1,7 +1,7 @@
 Set Up Substrate UI
 ===
 
-It is finally time for us to use the `substratekitties-ui` folder that we got from the `substrate-package`. This folder will contain a React project from the [`substrate-ui` repo](https://github.com/paritytech/substrate-ui/tree/substrate-node-template).
+It is finally time for us to use the `substrate-verifiable-credentials-ui` folder that we got from the `substrate-package`. This folder will contain a React project from the [`substrate-ui` repo](https://github.com/paritytech/substrate-ui/tree/substrate-node-template).
 
 ## Setup the Substrate UI
 
@@ -12,7 +12,7 @@ For the best experience working with the Substrate UI repo, you should install `
 Now we can install the node packages required by the UI:
 
 ```
-cd substratekitties-ui
+cd substrate-verifiable-credentials-ui
 yarn install
 ```
 

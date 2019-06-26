@@ -57,7 +57,7 @@ export class App extends ReactiveComponent {
 			<Divider hidden />
 			<TransactionsSegment />
 			<Divider hidden />
-			<SubstratekittiesSegment />
+			<substrate-verifiable-credentialsSegment />
 		</div>);
 	}
 }
@@ -371,7 +371,7 @@ class TransactionsSegment extends React.Component {
 	}
 }
 
-class SubstratekittiesSegment extends React.Component {
+class substrate-verifiable-credentialsSegment extends React.Component {
 	constructor() {
 		super()
 
@@ -384,11 +384,11 @@ class SubstratekittiesSegment extends React.Component {
 				<Icon name='paw' />
 				<Header.Content>
 					Substrate Kitties
-				<Header.Subheader>There are <Pretty value={runtime.substratekitties.allKittiesCount} /> kitties purring.</Header.Subheader>
+				<Header.Subheader>There are <Pretty value={runtime.substrate-verifiable-credentials.allKittiesCount} /> kitties purring.</Header.Subheader>
 				</Header.Content>
 			</Header>
 			<div style={{ paddingBottom: '1em' }}></div>
-			<KittyCards count={runtime.substratekitties.allKittiesCount} />
+			<KittyCards count={runtime.substrate-verifiable-credentials.allKittiesCount} />
 			<div style={{ paddingBottom: '1em' }}></div>
 			<SignerBond bond={this.skAccount} />
 			<TransactButton
@@ -396,7 +396,7 @@ class SubstratekittiesSegment extends React.Component {
 				icon='paw'
 				tx={{
 					sender: runtime.indices.tryIndex(this.skAccount),
-					call: calls.substratekitties.createKitty()
+					call: calls.substrate-verifiable-credentials.createKitty()
 				}}
 			/>
 		</Segment>
