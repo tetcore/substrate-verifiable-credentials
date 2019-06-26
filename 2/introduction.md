@@ -1,19 +1,13 @@
 Introduction
 ===
 
-[CryptoKitties](https://www.cryptokitties.co/) is a popular Ethereum dApp that at one point accounted for more than 20% of all incoming transactions on the Ethereum blockchain. In this tutorial, we will try to follow in their footsteps and create the next viral application on Substrate.
+[Verifiable Credentials](https://w3c.github.io/vc-data-model/) are an arising specification to model cryptographically proofable digital claims of credentials. To quote the abstract of the specification:
+> Credentials are a part of our daily lives; driver's licenses are used to assert that we are capable of operating a motor vehicle, university degrees can be used to assert our level of education, and government-issued passports enable us to travel between countries. This specification provides a mechanism to express these sorts of credentials on the Web in a way that is cryptographically secure, privacy respecting, and machine-verifiable. 
 
-In this section, we will show you how to create a runtime which allows users create and own non-fungible tokens.
+In this tutorial we attempt to build a runtime that allows for a simplistic implementation of verifiable credentials. Though inspiried by the specification and using [its terminilogy](https://w3c.github.io/vc-data-model/#terminology), this is no attempt to create a feature complete or even spec compliant implementation. For our tutorial we will focus on the most simple case, where we know of two main objects: `identities` and `credential`.
 
-## Non-Fungible Token
+In this chain, any `identity` can create a `credential` - making them the `issuer` - to any other `Identity` - making them the holder - by  assiging them a  `subject` through a signed extrinsics call. Once issued, the `holder` can claim to hold the `subject` and anyone can verify that claim by calling a function on the runtime with the `holder`s `Identity` and the given `subject`. Of course not everyone is allowed to create a `credential` for every `subject` but needs the appropriate `credentials` themselves - it is turtles all the way down ;D .
 
-CryptoKitties and other similar dApps use *non-fungible tokens* to represent their assets. A non-fungible token (NFT) is a token which is unique and distinguishable in nature. Whereas you can trade your Bitcoin for someone elses Bitcoin without really changing anything, when you create a kitty on CryptoKitties, you are generating a one of a kind, unique and irreplaceable item.
+A simple example of that would be when a local government (`issuer`) would allow someone (`holder`)  to drive (`subject`) by issuing a drivers license (`credential`). In the physical world the drivers license is the de-facto proof of that, but if a police officer believes it to be faked, they might call in the issuing authority and ask them directly whether their records match up. In our chain, one would just `claim` to hold the `credentials` to drive and anyone can verify that claim against with the runtime. 
 
-NFTs are particularly exciting not just because they are unique, but because of the things you can do with them! You can own a token, trade your tokens, buy or sell tokens, track the specific history of a token, and even have tokens interact with one another.
-
-## ERC-721
-
-[ERC-721](http://erc721.org/) is an extremely popular Ethereum token standard for non-fungible tokens. Since this standard is widely used, and there have been numerous smart contracts built using this standard, we will be using it as a rough basis for how our app should be structured.
-
-Specifically, we will look to the [OpenZeppelin implementation](https://github.com/OpenZeppelin/openzeppelin-solidity/blob/master/contracts/token/ERC721/ERC721.sol), avoiding some of the more unnecessary features like "token approvals".
-
+In this section, we will show you how to create a runtime which allows users create and own credentials.
