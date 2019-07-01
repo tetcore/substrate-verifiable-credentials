@@ -162,10 +162,10 @@ for our Alexander testnet.
 
 #### ** Template **
 
-[embedded-code](./assets/5.3-template.rs ':include :type=code embed-template')
+[embedded-code](../assets/5.3-template.rs ':include :type=code embed-template')
 
 #### ** Solution **
 
-[embedded-code-final](./assets/5.3-finished-code.rs ':include :type=code embed-final')
+[embedded-code-final](../assets/5.3-finished-code.rs ':include :type=code embed-final')
 
 <!-- tabs:end -->

@@ -56,7 +56,7 @@ We can add this to our application's `constructor()` function to ensure it gets 
 
 Since we won't have you build this component, we will show you some of the working pieces instead.
 
-![An image of the kitty cards in the UI](./assets/kitty-cards.png)
+![An image of the kitty cards in the UI](../assets/kitty-cards.png)
 
 ### Dynamic Card Loading
 
@@ -213,14 +213,14 @@ Also think about how you might need to change the `KittyCards` component if you 
 
 #### ** Template **
 
-[embedded-code](./assets/4.4-template.js ':include :type=code embed-template')
+[embedded-code](../assets/4.4-template.js ':include :type=code embed-template')
 
 #### ** Solution **
 
-[embedded-code-final](./assets/4.4-finished-code.js ':include :type=code embed-final')
+[embedded-code-final](../assets/4.4-finished-code.js ':include :type=code embed-final')
 
 #### ** Previous Chapter Solution **
 
-[embedded-code-previous](./assets/4.3-finished-code.js ':include :type=code embed-previous')
+[embedded-code-previous](../assets/4.3-finished-code.js ':include :type=code embed-previous')
 
 <!-- tabs:end -->

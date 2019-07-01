@@ -133,7 +133,7 @@ Now it's time to start adding some of our own logic!
 
 #### ** Solution **
 
-[embedded-code](./assets/1.1-finished-code.rs ':include :type=code embed-final')
+[embedded-code](../assets/1.1-finished-code.rs ':include :type=code embed-final')
 
 <!-- tabs:end -->
 

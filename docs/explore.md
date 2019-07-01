@@ -33,7 +33,7 @@ runtime.
 
 We should see a list of autocomplete options that our browser is aware of:
 
-![An image of the runtime autocomplete](./assets/runtime-autocomplete.png)
+![An image of the runtime autocomplete](../assets/runtime-autocomplete.png)
 
 You might notice that these are our modules! Better yet, we can see `substrate-verifiable-credentials`. Let's go deeper.
 
@@ -41,11 +41,11 @@ You might notice that these are our modules! Better yet, we can see `substrate-v
 runtime.substrate-verifiable-credentials.
 ```
 
-![An image of the substrate-verifiable-credentials autocomplete](./assets/runtime-substrate-verifiable-credentials-autocomplete.png)
+![An image of the substrate-verifiable-credentials autocomplete](../assets/runtime-substrate-verifiable-credentials-autocomplete.png)
 
 Here we can see all of the storage items our module exposes. Let's read from one of them:
 
-![An image of querying the storage from browser console](./assets/storage-from-browser.png)
+![An image of querying the storage from browser console](../assets/storage-from-browser.png)
 
 ```javascript
 > runtime.substrate-verifiable-credentials.allKittiesCount.then(console.log)
@@ -99,10 +99,10 @@ Update the `0` value to represent the current number of kitties tracked in our r
 
 #### ** Template **
 
-[embedded-code](./assets/4.2-template.js ':include :type=code embed-template')
+[embedded-code](../assets/4.2-template.js ':include :type=code embed-template')
 
 #### ** Solution **
 
-[embedded-code-final](./assets/4.2-finished-code.js ':include :type=code embed-final')
+[embedded-code-final](../assets/4.2-finished-code.js ':include :type=code embed-final')
 
 <!-- tabs:end -->

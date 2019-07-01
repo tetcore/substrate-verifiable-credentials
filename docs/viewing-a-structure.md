@@ -41,7 +41,7 @@ substrate-verifiable-credentials > createKitty()
 
 Once you press submit, you should see the transaction finalize:
 
-![Image of creating a kitty in the Polkadot-JS Apps UI](./assets/creating-a-kitty.png)
+![Image of creating a kitty in the Polkadot-JS Apps UI](../assets/creating-a-kitty.png)
 
 ## Viewing a Kitty
 
@@ -53,7 +53,7 @@ kittyStorage > ownedKitty(AccountId): Kitty
 
 Then select a user who has called the `createKitty()` function. You should then be able to see the individual properties of the `Kitty` object:
 
-![Image of viewing a kitty object in the Polkadot UI](./assets/view-kitty.png)
+![Image of viewing a kitty object in the Polkadot UI](../assets/view-kitty.png)
 
 ---
 **Learn More**

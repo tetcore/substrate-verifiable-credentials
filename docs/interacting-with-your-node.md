@@ -13,7 +13,7 @@ To point the UI to your local node, you need to adjust the **Settings**. Just se
 Settings > remote node/endpoint to connect to > Local Node (127.0.0.1:9944)
 ```
 
-![An image of the settings in Polkadot-JS Apps UI](./assets/polkadot-js-settings.png)
+![An image of the settings in Polkadot-JS Apps UI](../assets/polkadot-js-settings.png)
 
 After you press **Save and Reload**, you should notice the Polkadot-JS Apps UI come to life.
 Note that you should have your `./target/substrate-verifiable-credentials --dev` chain up and running while browsing the Polkadot UI.
@@ -24,7 +24,7 @@ Let's go into the **Transfer** app, and make a transaction. The default account 
 
 Share some with "Bob" by creating a transaction. You should see a confirmation appear when the transaction has completed, and Bob's balance will also be updated.
 
-![First Transfer in Polkadot-JS Apps UI](./assets/first-transfer.png)
+![First Transfer in Polkadot-JS Apps UI](../assets/first-transfer.png)
 
 Here you can see just how quickly we set up, ran, and interacted with our own local Substrate chain.
 

@@ -110,14 +110,14 @@ Use the instructions in the template of this section to help you get your module
 
 #### ** Template **
 
-[embedded-code-template](./assets/2.2-template.rs ':include :type=code embed-template')
+[embedded-code-template](../assets/2.2-template.rs ':include :type=code embed-template')
 
 #### ** Solution **
 
-[embedded-code-final](./assets/2.2-finished-code.rs ':include :type=code embed-final')
+[embedded-code-final](../assets/2.2-finished-code.rs ':include :type=code embed-final')
 
 #### ** Previous Chapter Solution **
 
-[embedded-code-previous](./assets/2.1-finished-code.rs ':include :type=code embed-previous')
+[embedded-code-previous](../assets/2.1-finished-code.rs ':include :type=code embed-previous')
 
 <!-- tabs:end -->

@@ -44,7 +44,7 @@ This process may take a little while, but once it is done, you should be able to
 
 If you've done everything right so far, you should see blocks being produced.
 
-![An image of the node producing new blocks](./assets/building-blocks.png)
+![An image of the node producing new blocks](../assets/building-blocks.png)
 
 Nice, you just started your own custom blockchain!
 

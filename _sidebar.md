@@ -1,44 +1,36 @@
 
 - [Welcome](/)
 
-- [**#0 Getting Started**](0/introduction.md)
+- [**Getting Started**](docs/introduction.md)
 
-    - [Setup](0/setup.md)
-    - [Running a Custom Node](0/running-a-custom-node.md)
-    - [Interacting with Your Node](0/interacting-with-your-node.md)
-    - [Common Patterns Moving Forward](0/common-patterns-moving-forward.md)
+    - [Setup](docs/setup.md)
+    - [Running a Custom Node](docs/running-a-custom-node.md)
+    - [Interacting with Your Node](docs/interacting-with-your-node.md)
+    - [Common Patterns Moving Forward](docs/common-patterns-moving-forward.md)
 
-- [**#1 Basics**](1/introduction.md)
+- [**Basics**](docs/basics.md)
 
-    - [Creating a Module](1/creating-a-module.md)
-    - [Creating a Storage Value](1/creating-a-storage-value.md)
-    - [Storing a Value](1/storing-a-value.md)
-    - [Storage Mapping](1/storage-mapping.md)
-    - [Viewing a Storage Mapping](1/viewing-a-storage-mapping.md)
-    - [Storing a Structure](1/storing-a-structure.md)
-    - [Viewing a Structure](1/viewing-a-structure.md)
+    - [Creating a Module](docs/creating-a-module.md)
+    - [Creating a Storage Value](docs/creating-a-storage-value.md)
+    - [Storing a Value](docs/storing-a-value.md)
+    - [Storage Mapping](docs/storage-mapping.md)
+    - [Viewing a Storage Mapping](docs/viewing-a-storage-mapping.md)
 
-- [**#2 Verifiable Credentials**](2/introduction.md)
+- [**Verifiable Credentials**](docs/intro-verifiablecreds.md)
 
-    - [Creating an Event](2/creating-an-event.md)
-    - [Tracking All Kitties](2/tracking-all-kitties.md)
-    - [Owning Multiple Kitties](2/owning-multiple-kitties.md)
-    - [Viewing Multiple Kitties](2/viewing-multiple-kitties.md)
-    - [Refactoring Our Code](2/refactoring-our-code.md)
+    - [Storing a Structure](docs/storing-a-structure.md)
+    - [Viewing a Structure](docs/viewing-a-structure.md)
+    - [Creating an Event](docs/creating-an-event.md)
+    - [Tracking All Kitties](docs/tracking-all-kitties.md)
+    - [Owning Multiple Kitties](docs/owning-multiple-kitties.md)
+    - [Viewing Multiple Kitties](docs/viewing-multiple-kitties.md)
+    - [Refactoring Our Code](docs/refactoring-our-code.md)
 
-- [**#3 Interactions**](3/introduction.md)
+- [**Tests**](docs/introduction.md)
 
-    - [Setting a Price](3/setting-a-price.md)
-    - [Transferring a Kitty](3/transferring-a-kitty.md)
-    - [Buying a Kitty](3/buying-a-kitty.md)
-    - [Breeding a Kitty](3/breeding-a-kitty.md)
-    - [Playing our Game](3/playing-our-game.md)
-
-- [**#4 Tests**](5/introduction.md)
-
-    - [Set Up Tests](5/setting-up-tests.md)
-    - [Writing Tests](5/writing-tests.md)
-    - [Testing Genesis](5/testing-genesis.md)
+    - [Set Up Tests](docs/setting-up-tests.md)
+    - [Writing Tests](docs/writing-tests.md)
+    - [Testing Genesis](docs/testing-genesis.md)
 
 - [**Extras**](Extras/)
 

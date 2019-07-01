@@ -24,7 +24,7 @@ substrate-verifiable-credentials > createKitty()
 
 For our test we will have Alice create 3 kitties, Bob create 2 kitties, and Charlie create 1.
 
-![An image of Alice creating a Kitty](./assets/alice-creates-kitty.png)
+![An image of Alice creating a Kitty](../assets/alice-creates-kitty.png)
 
 ## Viewing Our Storage
 
@@ -38,15 +38,15 @@ kittyStorage > allKittiesCount(): u64
 
 If all went right, we should get the value `6` returned.
 
-![An image of AllKittiesCount](./assets/all-kitties-count.png)
+![An image of AllKittiesCount](../assets/all-kitties-count.png)
 
 Next we should check the kitty count for each user, expecting 3 for Alice, 2 for Bob, and 1 for Charlie:
 
-![An image of individual kitty count](./assets/owner-kitty-count.png)
+![An image of individual kitty count](../assets/owner-kitty-count.png)
 
 If we look at `AllKittiesArray`, we should be able to get each kitty by their global index. I will look at the 5th kitty (which is index 4), and confirm the owner is Bob. Furthermore, we can confirm that this is Bob's 2nd kitty since the relative `OwnedKittiesIndex` is `1`.
 
-![An image of Bob's kitty in storage](./assets/bob-owned-kitty.png)
+![An image of Bob's kitty in storage](../assets/bob-owned-kitty.png)
 
 ## Your Turn!
 

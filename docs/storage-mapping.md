@@ -95,14 +95,14 @@ Update your simple storage example to now store a map from an `u32` to an `Accou
 
 #### ** Template **
 
-[embedded-code](./assets/1.4-template.rs ':include :type=code embed-template')
+[embedded-code](../assets/1.4-template.rs ':include :type=code embed-template')
 
 #### ** Solution **
 
-[embedded-code-final](./assets/1.4-finished-code.rs ':include :type=code embed-final')
+[embedded-code-final](../assets/1.4-finished-code.rs ':include :type=code embed-final')
 
 #### ** Previous Chapter Solution **
 
-[embedded-code-previous](./assets/1.3-finished-code.rs ':include :type=code embed-previous')
+[embedded-code-previous](../assets/1.3-finished-code.rs ':include :type=code embed-previous')
 
 <!-- tabs:end -->

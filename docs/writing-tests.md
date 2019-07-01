@@ -113,10 +113,10 @@ You can see another sample tutorial which implements the genesis config [here](h
 
 #### ** Template **
 
-[embedded-code](./assets/5.2-template.rs ':include :type=code embed-template')
+[embedded-code](../assets/5.2-template.rs ':include :type=code embed-template')
 
 #### ** Solution **
 
-[embedded-code-final](./assets/5.2-finished-code.rs ':include :type=code embed-final')
+[embedded-code-final](../assets/5.2-finished-code.rs ':include :type=code embed-final')
 
 <!-- tabs:end -->
