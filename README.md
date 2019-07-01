@@ -5,7 +5,7 @@
 
 ## What is this?
 
-This is an interactive hands-on self-paced workshop. You will learn how to build your first blockchain using [Substrate][], the OpenSource [Rust][] Blockchain Development Kit by [Parity][]. Through the lessons of the workshop, you will build a verifiable credentials blockchain -- a chain that where identities can assign other identities credentials that other can then verify the idenity is holder of said credential.
+This is an interactive hands-on self-paced workshop. You will learn how to build your first blockchain using [Substrate][], the OpenSource [Rust][] Blockchain Development Kit by [Parity][]. Through the lessons of the workshop, you will build a verifiable credentials blockchain - a chain where identities can assign each other credentials allowing them to claim certain attributes and anyone to verify such claim.
 
 As such, this material will focus on the logic of building the said chain. It won't cover the networking, consensus or economic incentive aspects of blockchains. Fortunately, Substrate comes with decent networking and consensus engines built in, so we can just focus on the chain logic.
 
