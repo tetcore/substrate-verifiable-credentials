@@ -1,7 +1,7 @@
 Creating a Module
 ===
 
-To start, we need to create a new module for our runtime. For that we will work with an empty module template which we will place in a new `substrate-verifiable-credentials.rs` file:
+To start, we need to create a new module for our runtime. For that we will work with an empty module template which we will place in a new `verifiablecreds.rs` file:
 
 ```
 substrate-verifiable-credentials
@@ -12,7 +12,7 @@ substrate-verifiable-credentials
         |
         +-- lib.rs
         |
-        +-- * substrate-verifiable-credentials.rs
+        +-- * verifiablecreds.rs
 	|
 	+-- template.rs 
 ```
@@ -63,7 +63,7 @@ pub type BlockNumber = u64;
 pub type Nonce = u64;
 
 // Add this line
-mod substrate-verifiable-credentials;
+mod verifiablecreds;
 ...
 ```
 
@@ -78,7 +78,7 @@ impl sudo::Trait for Runtime {
 }
 
 // Add this line
-impl substrate-verifiable-credentials::Trait for Runtime {}
+impl verifiablecreds::Trait for Runtime {}
 ...
 ```
 
@@ -101,7 +101,7 @@ construct_runtime!(
 		Balances: balances,
 		Sudo: sudo,
 		// Add this line
-		substrate-verifiable-credentials: substrate-verifiable-credentials::{Module, Call, Storage},
+		substrate-verifiable-credentials: verifiablecreds::{Module, Call, Storage},
 	}
 );
 ...
@@ -125,7 +125,7 @@ If you have not already, follow the instructions on this page to set up your `su
 cargo build --release
 ```
 
-At the end of every section in this tutorial, your code should compile without errors. Most of the changes throughout this tutorial will take place in the `substrate-verifiable-credentials.rs` file, but we will need to update the `lib.rs` file one more time at a later point.
+At the end of every section in this tutorial, your code should compile without errors. Most of the changes throughout this tutorial will take place in the `verifiablecreds.rs` file, but we will need to update the `lib.rs` file one more time at a later point.
 
 Now it's time to start adding some of our own logic!
 

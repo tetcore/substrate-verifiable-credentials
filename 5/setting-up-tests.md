@@ -2,7 +2,7 @@ Setting Up Tests
 ===
 
 Our tests will require support code, so let's start by creating its own `test` module.
-You can place this module inside `substrate-verifiable-credentials.rs` as follows (alternatively, you can also refactor this out into its own `test.rs` file).
+You can place this module inside `verifiablecreds.rs` as follows (alternatively, you can also refactor this out into its own `test.rs` file).
 
 **substrate-verifiable-credentials<span>.</span>rs**
 ```rust
