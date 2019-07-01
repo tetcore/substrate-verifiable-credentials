@@ -3,40 +3,48 @@ use system::ensure_signed;
 // ACTION: Import `runtime_primitives::traits::{As, Hash}`
 // ACTION: Import `parity_codec::{Encode, Decode}`
 
+pub trait Trait: balances::Trait + timestamp::Trait {}
+
 // NOTE: We have added this struct template for you
 #[derive(Encode, Decode, Default, Clone, PartialEq)]
 #[cfg_attr(feature = "std", derive(Debug))]
-pub struct Kitty<Hash, Balance> {
+pub struct Credential<Timestamp, AccountId> {
     // ACTION: Define the properties of your kitty struct here
-    //         - `id` as a `Hash`
-    //         - `dna` as a `Hash`
-    //         - `price` as a `Balance`
-    //         - `gen` as a `u64`
+    //         - `subject` as a `u32` 
+    //         - `when` as a `Timestamp`
+    //         - `by` as a `AccountId`
 }
-
-pub trait Trait: balances::Trait {}
 
 decl_storage! {
-    trait Store for Module<T: Trait> as KittyStorage {
-        // ACTION: Update this variable to be named `OwnedKitty`
-        // ACTION: Add a getter function named `kitty_of_owner`
-        // ACTION: Update this storage item to store a `Kitty<T::Hash, T::Balance>`
-        Value: map T::AccountId => u64;
+    trait Store for Module<T: Trait> as VerifiableCreds {
+        SubjectCount: u32;
+        Subjects: map u32 => T::AccountId;
+        // ACTION: Add a map variable to be named `Credentials` to store a `Credential<T::Moment, T::Account>`
+        //         for every `(T:AccountId, u32)` (per subject).
+        // ACTION: Add a getter function named `credentials`
     }
 }
-
 decl_module! {
     pub struct Module<T: Trait> for enum Call where origin: T::Origin {
 
-        // NOTE: This function template has changed from the previous section
-        fn create_kitty(origin) -> Result {
+        fn create_subject(origin) -> Result {
+            let sender = ensure_signed(origin)?;
+            let subject = SubjectCount<T>::get();
+
+            <SubjectCount<T>>::push(subject + 1);
+            <Subjects<T>>::insert(subject, sender);
+
+            Ok(())
+        }
+        // NOTE: We added a new function
+        fn issue_credential(origin, to: T:AccountId, subject: u32) -> Result {
             let sender = ensure_signed(origin)?;
 
-            // ACTION: Create a `Kitty` object named `new_kitty` here
-            //   HINT: You can generate a hash with `<T as system::Trait>::Hashing::hash_of(&0)`
-            //         and you can generate a `0` balance with `<T::Balance as As<u64>>::sa(0)`
+            // ACTION: Create a `Credential` object named `new_cred` here for the given subject
+            // HINT: you can receive the current timestamp via ` <timestamp::Module<T>>::get()`
 
-            // ACTION: Store your `new_kitty` into the runtime storage
+            // ACTION: Store your `new_cred` into the runtime storage for
+            //         the given accountId
 
             Ok(())
         }

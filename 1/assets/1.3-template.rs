@@ -3,11 +3,11 @@
 //   HINT: Again, you only need to add `dispatch::Result` to the list below.
 use support::{decl_storage, decl_module, StorageValue};
 
-pub trait Trait: system::Trait {}
+pub trait Trait: balances::Trait + timestamp::Trait {}
 
 decl_storage! {
-    trait Store for Module<T: Trait> as KittyStorage {
-        Value: u64;
+    trait Store for Module<T: Trait> as VerifiableCreds {
+        SubjectCount: u64;
     }
 }
 

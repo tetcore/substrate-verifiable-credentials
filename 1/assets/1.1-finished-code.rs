@@ -1,9 +1,9 @@
 use support::{decl_storage, decl_module};
 
-pub trait Trait: system::Trait {}
+pub trait Trait: balances::Trait + timestamp::Trait {}
 
 decl_storage! {
-    trait Store for Module<T: Trait> as KittyStorage {
+    trait Store for Module<T: Trait> as VerifiableCreds {
           // Declare storage and getter functions here
   }
 }

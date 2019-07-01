@@ -16,7 +16,7 @@ pub struct Kitty<Hash, Balance> {
 pub trait Trait: balances::Trait {}
 
 decl_storage! {
-    trait Store for Module<T: Trait> as KittyStorage {
+    trait Store for Module<T: Trait> as VerifiableCreds {
         // ACTION: Add two new kitty storage items: 
         //         - `Kitties` which maps a `T::Hash` to a `Kitty<T::Hash, T::Balance>`
         //         - `KittyOwner` which maps a `T::Hash` to an `Option<T::AccountId>`

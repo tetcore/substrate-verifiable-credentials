@@ -31,7 +31,7 @@ decl_event!(
 );
 
 decl_storage! {
-    trait Store for Module<T: Trait> as KittyStorage {
+    trait Store for Module<T: Trait> as VerifiableCreds {
         Kitties get(kitty): map T::Hash => Kitty<T::Hash, T::Balance>;
         KittyOwner get(owner_of): map T::Hash => Option<T::AccountId>;
 

@@ -1,7 +1,7 @@
 Storage Mapping
 ===
 
-Our last runtime only allowed us to store a single value across all users of our blockchain. As we start thinking toward our collectables chain, it makes sense to add support for each user to have their own value stored.
+Our last runtime only allowed us to store a single value across all users of our blockchain. As we start thinking toward our chain, it makes sense to add support for each user to have their own value stored.
 
 To enable this, we will replace our simple single value storage with a storage mapping.
 
@@ -11,16 +11,12 @@ Before we jump into storage mappings, let's talk about some substrate specific t
 
 Your default runtime template includes a bunch of modules that expose types that you would expect to get from a blockchain. You might even find yourself exposing new types to other parts of the runtime as you do more module development.
 
-In this tutorial we will only be using 3 substrate specific types:
+In this tutorial we will only be using 2 substrate specific types: `AccountId` & `Moment` (a timestamp type).
 
- 1. AccountId
- 2. Balance
- 3. Hash
-
-Our module does not natively have access to these types, but we can easily gain access by having our module's `Trait` inherit from the modules that defined these types. In this case the `balances` module has everything we need:
+Our module does not natively have access to these types, but we can easily gain access by having our module's `Trait` inherit from the modules that defined these types. In this case the `system` and `timestamp` modules have everything we need:
 
 ```rust
-pub trait Trait: balances::Trait {}
+pub trait Trait: Trait: system::Trait + timestamp::Trait {}
 ```
 
 We can access these types anywhere we have specified the generic `<T: Trait>` using `T::Type` like we have done in the example above.
@@ -93,7 +89,7 @@ let also_my_value = Self::some_value_getter(key);
 
 ## Your Turn!
 
-Update your simple storage example to now store a map from an `AccountId` to a `u64`.
+Update your simple storage example to now store a map from an `u32` to an `AccountId`.
 
 <!-- tabs:start -->
 
@@ -110,12 +106,3 @@ Update your simple storage example to now store a map from an `AccountId` to a `
 [embedded-code-previous](./assets/1.3-finished-code.rs ':include :type=code embed-previous')
 
 <!-- tabs:end -->
-
----
-**Learn More**
-
-Talk about funding accounts to enable transactions
-
-[TODO: make this a page]
-
----

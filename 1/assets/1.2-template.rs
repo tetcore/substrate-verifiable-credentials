@@ -3,11 +3,11 @@
 //         all these dependencies import from `support`.
 use support::{decl_storage, decl_module};
 
-pub trait Trait: system::Trait {}
+pub trait Trait: balances::Trait + timestamp::Trait {}
 
 decl_storage! {
-    trait Store for Module<T: Trait> as KittyStorage {
-        // ACTION: create a storage item named `Value` which stores a `u64`
+    trait Store for Module<T: Trait> as VerifiableCreds {
+        // ACTION: create a storage item named `SubjectCount` which stores a `u32`
     }
 }
 

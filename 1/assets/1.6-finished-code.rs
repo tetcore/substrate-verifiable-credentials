@@ -3,37 +3,48 @@ use system::ensure_signed;
 use runtime_primitives::traits::{As, Hash};
 use parity_codec::{Encode, Decode};
 
+pub trait Trait: balances::Trait + timestamp::Trait {}
+
 #[derive(Encode, Decode, Default, Clone, PartialEq)]
 #[cfg_attr(feature = "std", derive(Debug))]
-pub struct Kitty<Hash, Balance> {
-    id: Hash,
-    dna: Hash,
-    price: Balance,
-    gen: u64,
+pub struct Credential<Timestamp, AccountId> {
+    subject: u32,
+    when: Timestamp,
+    by: AccountId
 }
-
-pub trait Trait: balances::Trait {}
 
 decl_storage! {
-    trait Store for Module<T: Trait> as KittyStorage {
-        OwnedKitty get(kitty_of_owner): map T::AccountId => Kitty<T::Hash, T::Balance>;
+    trait Store for Module<T: Trait> as VerifiableCreds {
+        SubjectCount: u32;
+        Subjects: map u32 => T::AccountId;
+        Credentials get(credentials): map (T::AccountId, u32) => Credential<T::Moment, T::AccountId>;
     }
 }
+
 
 decl_module! {
     pub struct Module<T: Trait> for enum Call where origin: T::Origin {
 
-        fn create_kitty(origin) -> Result {
+        fn create_subject(origin) -> Result {
+            let sender = ensure_signed(origin)?;
+            let subject = SubjectCount<T>::get();
+
+            <SubjectCount<T>>::push(subject + 1);
+            <Subjects<T>>::insert(subject, sender);
+
+            Ok(())
+        }
+        // NOTE: We added a new function
+        fn issue_credential(origin, to: T:AccountId, subject: u32) -> Result {
             let sender = ensure_signed(origin)?;
 
-            let new_kitty = Kitty {
-                id: <T as system::Trait>::Hashing::hash_of(&0),
-                dna: <T as system::Trait>::Hashing::hash_of(&0),
-                price: <T::Balance as As<u64>>::sa(0),
-                gen: 0,
+            let new_cred = Credential {
+                subject: subject,
+                when: <timestamp::Module<T>>::get(),
+                by: sender,
             };
 
-            <OwnedKitty<T>>::insert(&sender, new_kitty);
+            <Credentials<T>>::insert((&sender, subject), new_cred);|
 
             Ok(())
         }

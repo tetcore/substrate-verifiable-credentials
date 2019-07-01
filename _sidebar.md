@@ -20,7 +20,6 @@
 
 - [**#2 Verifiable Credentials**](2/introduction.md)
 
-    - [Generating Random Data](2/generating-random-data.md)
     - [Creating an Event](2/creating-an-event.md)
     - [Tracking All Kitties](2/tracking-all-kitties.md)
     - [Owning Multiple Kitties](2/owning-multiple-kitties.md)

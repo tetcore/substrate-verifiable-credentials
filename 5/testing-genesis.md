@@ -43,7 +43,7 @@ Next, inside the `decl_storage` scope, create a struct called `add_extra_genesis
 
 ```rust
 decl_storage! {
-    trait Store for Module<T: Trait> as KittyStorage { ... }
+    trait Store for Module<T: Trait> as VerifiableCreds { ... }
 
     add_extra_genesis {
         config(kitties): Vec<(T::AccountId, T::Hash, T::Balance)>;

@@ -24,10 +24,10 @@ substrate-verifiable-credentials
 ```rust
 use support::{decl_storage, decl_module};
 
-pub trait Trait: system::Trait {}
+pub trait Trait: balances::Trait + timestamp::Trait {}
 
 decl_storage! {
-    trait Store for Module<T: Trait> as KittyStorage {
+    trait Store for Module<T: Trait> as VerifiableCreds {
         // Declare storage and getter functions here
     }
 }
@@ -101,7 +101,7 @@ construct_runtime!(
 		Balances: balances,
 		Sudo: sudo,
 		// Add this line
-		substrate-verifiable-credentials: verifiablecreds::{Module, Call, Storage},
+		VerifiableCreds: verifiablecreds::{Module, Call, Storage},
 	}
 );
 ...
