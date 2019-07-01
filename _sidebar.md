@@ -20,6 +20,7 @@
 
     - [Storing a Structure](docs/storing-a-structure.md)
     - [Viewing a Structure](docs/viewing-a-structure.md)
+    - [Securing issuing](docs/securing-issuing.md)
     - [Creating an Event](docs/creating-an-event.md)
     - [Tracking All Kitties](docs/tracking-all-kitties.md)
     - [Owning Multiple Kitties](docs/owning-multiple-kitties.md)

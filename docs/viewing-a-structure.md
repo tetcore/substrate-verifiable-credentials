@@ -22,46 +22,29 @@ Go back to the **Settings** app. Under the **Developer** section, you can either
 
 ```
 {
-    "Kitty": {
-        "id": "H256",
-        "dna": "H256",
-        "price": "Balance",
-        "gen": "u64"
+    "Credential": {
+        "subject": "u32",
+        "when": "Moment",
+        "by": "AccountId",
     }
 }
 ```
 
-## Creating a Kitty
+## Issuing a Credential
 
-Now we can go and create a new kitty. In the **Extrinsics** app, go to:
-
-```
-substrate-verifiable-credentials > createKitty()
-```
-
-Once you press submit, you should see the transaction finalize:
-
-![Image of creating a kitty in the Polkadot-JS Apps UI](../assets/creating-a-kitty.png)
-
-## Viewing a Kitty
-
-Finally, we can go into the **Chain State** app and view our stored kitty object. Select:
+After we have created a subject previously, we can now issue credentials for them. In the **Extrinsics** app, go to:
 
 ```
-kittyStorage > ownedKitty(AccountId): Kitty
+VerifiableCredits > issueCredentials(AccountId, u32)
+```
+You will be asked, which AccounId you want to issue the subject to and the subject id we previously generated.
+
+## Viewing a Credential
+
+Finally, we can go into the **Chain State** app and view our stored credential object. Select:
+
+```
+VerifiableCreds > credentials((AccountId, u32)): Credential
 ```
 
-Then select a user who has called the `createKitty()` function. You should then be able to see the individual properties of the `Kitty` object:
-
-![Image of viewing a kitty object in the Polkadot UI](../assets/view-kitty.png)
-
----
-**Learn More**
-
-Talk about serialization and deserialization.
-
-How we simply transfer and transmit raw bytes
-
-[TODO: make this a page]
-
----
+Then select the account you issued the credentials for. You should then be able to see the individual properties of the `Credential` object.

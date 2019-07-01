@@ -23,25 +23,19 @@ If we go back into the [Polkadot-JS Apps UI](https://polkadot.js.org/apps), we s
 Go to the **Extrinsics** app, and using the "from extrinsic section" dropdown select:
 
 ```
-substrate-verifiable-credentials > setValue(value)
+substrate-verifiable-credentials > createSubject()
 ```
 
-Type in a value and press `Submit Transaction`:
-
-![Submit a storage mapping in the Polkadot-JS Apps UI](./assets/submit-storage-mapping.png)
+Type in a value and press `Submit Transaction`.
 
 ## View the Storage
 
-Now that you have submitted a transaction to put a value into storage, we should take a look that the value is actually there.
+Now that you have submitted a transaction to create a new subject into storage, we should take a look that the subject is properly assigned.
 
 Go to the **Chain state** app and select:
 
 ```
-kittyStorage > value(AccountId): u64
+VerifiableCreds > subjects(u32): AccountId
 ```
 
-For the account you submitted the transaction with, query the storage and press the blue `[+]` button:
-
-![Query for storage mapping](./assets/view-storage-mapping.png)
-
-You should get back the same value you stored in! You can try this with multiple accounts and see that each user is able to store their own value into the runtime storage.
+Just put in `0` (or any higher number, if you created multiple subjects) and query the storage by pressing the blue `[+]` button. It should show that the value is the accountId you submitted the previous transaction with.
