@@ -1,26 +1,26 @@
-// ACTION: Add ensure` to the import from `support
-use support::{decl_storage, decl_module, StorageMap, dispatch::Result};
+use support::{decl_storage, decl_module, StorageMap, dispatch::Result, ensure};
 use system::ensure_signed;
 use runtime_primitives::traits::{As, Hash};
 use parity_codec::{Encode, Decode};
-// ACTION: import `MAX` from `core::u32` `as MAX_SUBJECT`
+use core::u32::MAX as MAX_SUBJECT;
 
 pub trait Trait: balances::Trait + timestamp::Trait {}
+
+pub type Subject = u32;
 
 #[derive(Encode, Decode, Default, Clone, PartialEq)]
 #[cfg_attr(feature = "std", derive(Debug))]
 pub struct Credential<Timestamp, AccountId> {
-    subject: u32,
+    subject: Subject,
     when: Timestamp,
     by: AccountId
 }
 
 decl_storage! {
     trait Store for Module<T: Trait> as VerifiableCreds {
-        // ACTION: make this configurable
-        SubjectCount: u32;
-        Subjects: map u32 => T::AccountId;
-        Credentials get(credentials): map (T::AccountId, u32) => Credential<T::Moment, T::AccountId>;
+        SubjectCount get(subject_count) config(): Subject;
+        Subjects get(subjects): map Subject => T::AccountId;
+        Credentials get(credentials): map (T::AccountId, Subject) => Credential<T::Moment, T::AccountId>;
     }
 }
 
@@ -30,20 +30,20 @@ decl_module! {
 
         fn create_subject(origin) -> Result {
             let sender = ensure_signed(origin)?;
-            let subject = <SubjectCount<T>>::get();
+            let subject = Self::subject_count();
 
-            // ACTION: use `ensure!` here to verify subject is smaller than `MAX_SUBJECT`.
+            ensure!(subject <= MAX_SUBJECT, "Exhausted all Subjects");
 
             <SubjectCount<T>>::push(subject + 1);
             <Subjects<T>>::insert(subject, sender);
 
             Ok(())
         }
-        
-        fn issue_credential(origin, to: T:AccountId, subject: u32) -> Result {
+
+        fn issue_credential(origin, to: T:AccountId, subject: Subject) -> Result {
             let sender = ensure_signed(origin)?;
-            // ACTION: fetch the account stored at `subject`
-            // ACTION: and `ensure!` it equals the `sender`.
+
+            ensure!(Self::subjects(subject) == sender, "Unauthorized.");
 
             let new_cred = Credential {
                 subject: subject,
@@ -57,4 +57,3 @@ decl_module! {
         }
     }
 }
-// ACTION: don't forget to add `Config<T>` to the `lib.rs`
