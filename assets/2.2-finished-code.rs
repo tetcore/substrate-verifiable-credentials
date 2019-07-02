@@ -23,8 +23,8 @@ decl_event!(
     where
         AccountId = <T as system::Trait>::AccountId,
     {
-        SubjectCreated(AccountId, u32),
-        CredentialIssued(AccountId, u32, AccountId),
+        SubjectCreated(AccountId, Subject),
+        CredentialIssued(AccountId, Subject, AccountId),
     }
 );
 
@@ -67,7 +67,7 @@ decl_module! {
                 by: sender,
             };
 
-            <Credentials<T>>::insert((&sender, subject), new_cred);|
+            <Credentials<T>>::insert((&sender, subject), new_cred);
             Self::deposit_event(
               RawEvent::CredentialIssued(to, subject, sender)
             );
