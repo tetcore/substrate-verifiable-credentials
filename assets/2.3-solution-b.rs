@@ -6,12 +6,20 @@ use core::u32::MAX as MAX_SUBJECT;
 
 pub type Subject = u32;
 
+// SOLUTION B: we add an new field on the credential allowing us to track whether it has been 
+//             revoked. This makes it possible to keep exact timestamp of revokation accessible easily
+//             and thus distinguish between revoked and not-yet-issued. It also always later to add
+//             further options to for e.g. give reasons for revokation.
+
+
 #[derive(Encode, Decode, Default, Clone, PartialEq)]
 #[cfg_attr(feature = "std", derive(Debug))]
 pub struct Credential<Timestamp, AccountId> {
     subject: Subject,
     when: Timestamp,
-    by: AccountId
+    by: AccountId,
+    // We added another optional field
+    revoked: Option<Timestamp>,
 }
 
 pub trait Trait: system::Trait + timestamp::Trait  {
@@ -25,8 +33,7 @@ decl_event!(
     {
         SubjectCreated(AccountId, Subject),
         CredentialIssued(AccountId, Subject, AccountId),
-        // ACTION: you problaby want to add another Event
-
+        CredentialRevoked(AccountId, Subject, AccountId),
     }
 );
 
@@ -42,20 +49,31 @@ decl_module! {
     pub struct Module<T: Trait> for enum Call where origin: T::Origin {
         fn deposit_event<T>() = default;
 
-        // ACTION: which parameters are needed?
-        fn verify_credential(origin) -> Result {
+        /// Verify a credential.
+        pub fn verify_credential(origin, holder: T::AccountId, subject: Subject) {
             let _sender = ensure_signed(origin)?;
 
-            // ACTION: how to confirm, this checks out?
-            Ok(())
+            // Ensure credential is issued and allowed to be verified.
+            ensure!(<Credentials<T>>::exists((holder.clone(), subject)), "Credential not issued yet.");
+            ensure!(Self::credentials((holder.clone(), subject)).revoked.is_some(), "Credential has been revoked.");
         }
 
-        // ACTION: which parameters are needed?
-        fn revoke_credential(origin) -> Result {
-            let sender = ensure_signed(origin)?;
+        /// Revoke a credential.
+        /// Only an issuer can call this function. 
+        pub fn revoke_credential(origin, to: T::AccountId, subject: Subject) {
+            // Check if origin is an issuer.
+            // Check if credential is issued.
+            // Change the internal flag to the current timestamp
 
-            // ACTION: how do we revoke a credential?
-            Ok(())
+            let sender = ensure_signed(origin)?;
+            let subject_issuer = Self::subjects(subject);
+            ensure!(subject_issuer == sender, "Unauthorized.");
+            ensure!(<Credentials<T>>::exists((to.clone(), subject)), "Credential not issued yet.");
+
+            <Credentials<T>>::mutate(|&mut cred| {
+                cred.revoked = Some(<timestamp::Module<T>>::get())
+            });
+            Self::deposit_event(RawEvent::CredentialRevoked(to, subject, sender));
         }
 
         fn create_subject(origin) -> Result {
@@ -83,6 +101,7 @@ decl_module! {
                 subject: subject,
                 when: <timestamp::Module<T>>::get(),
                 by: sender,
+                revoked: None, // we need to add the empty field here
             };
 
             <Credentials<T>>::insert((&sender, subject), new_cred);

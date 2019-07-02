@@ -25,8 +25,7 @@ decl_event!(
     {
         SubjectCreated(AccountId, Subject),
         CredentialIssued(AccountId, Subject, AccountId),
-        // ACTION: you problaby want to add another Event
-
+        CredentialRevoked(AccountId, Subject, AccountId),
     }
 );
 
@@ -42,20 +41,28 @@ decl_module! {
     pub struct Module<T: Trait> for enum Call where origin: T::Origin {
         fn deposit_event<T>() = default;
 
-        // ACTION: which parameters are needed?
-        fn verify_credential(origin) -> Result {
+        /// Verify a credential.
+        pub fn verify_credential(origin, holder: T::AccountId, subject: Subject) {
             let _sender = ensure_signed(origin)?;
 
-            // ACTION: how to confirm, this checks out?
-            Ok(())
+            // Ensure credential is issued and allowed to be verified.
+            ensure!(<Credentials<T>>::exists((holder.clone(), subject)), "Credential not issued yet.");
         }
 
-        // ACTION: which parameters are needed?
-        fn revoke_credential(origin) -> Result {
-            let sender = ensure_signed(origin)?;
+        /// Revoke a credential.
+        /// Only an issuer can call this function. 
+        pub fn revoke_credential(origin, to: T::AccountId, subject: Subject) {
+            // Check if origin is an issuer.
+            // Check if credential is issued.
+            // Change the bool flag of the stored credential tuple to false.
 
-            // ACTION: how do we revoke a credential?
-            Ok(())
+            let sender = ensure_signed(origin)?;
+            let subject_issuer = Self::subjects(subject);
+            ensure!(subject_issuer == sender, "Unauthorized.");
+            ensure!(<Credentials<T>>::exists((to.clone(), subject)), "Credential not issued yet.");
+
+            <Credentials<T>>::remove((to.clone(), subject));
+            Self::deposit_event(RawEvent::CredentialRevoked(to, subject, sender));
         }
 
         fn create_subject(origin) -> Result {

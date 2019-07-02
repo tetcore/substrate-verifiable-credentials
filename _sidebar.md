@@ -23,8 +23,7 @@
     - [Securing issuing](docs/securing-issuing.md)
     - [Cleaning it up](docs/clean-coding.md)
     - [Creating an Event](docs/creating-an-event.md)
-    - [Verify a Credential](docs/verify-credential.md)
-    - [Revoke Credential](docs/revoke-credential.md)
+    - [Verify & Revoke](docs/verify-credential.md)
 
 - [**Tests**](docs/introduction.md)
 
