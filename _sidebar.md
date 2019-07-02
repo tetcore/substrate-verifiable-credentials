@@ -25,11 +25,10 @@
     - [Creating an Event](docs/creating-an-event.md)
     - [Verify & Revoke](docs/verify-credential.md)
 
-- [**Tests**](docs/introduction.md)
+- [**Tests**](docs/intro-test.md)
 
     - [Set Up Tests](docs/setting-up-tests.md)
     - [Writing Tests](docs/writing-tests.md)
-    - [Testing Genesis](docs/testing-genesis.md)
 
 ----
 
