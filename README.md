@@ -1,7 +1,6 @@
 # [Substrate Verifiable Credentials][main link]
 > The interactive hands-on build-your-first-blockchain with [Substrate][] workshop
 
-[Getting Started Slides](https://docs.google.com/presentation/d/1dhaoLb5V2K_vDe4EJlUcKwePD1nMktr57fOdSo8bHns/edit#slide=id.g45ee0ba2ab_3_12)
 
 ## What is this?
 
@@ -26,9 +25,9 @@ Substrate is a rapidly evolving project, which means that breaking changes may c
 
 ## How to contribute
 
-* Open [issues on our GitHub](https://github.com/substrate-developer-hub/substrate-collectables-workshop/issues)
+* Open [issues on our GitHub](https://github.com/gnunicorn/substrate-verifiable-credentials-workshop/issues)
 
-* Fork and clone the [repository](https://github.com/substrate-developer-hub/substrate-collectables-workshop)
+* Fork and clone the [repository](https://github.com/gnunicorn/substrate-verifiable-credentials-workshop)
 
 * Launch a local development server with a tool like [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) for [Visual Studio Code](https://code.visualstudio.com/)
 
@@ -38,7 +37,7 @@ Substrate is a rapidly evolving project, which means that breaking changes may c
 
 Open source projects like Substrate and this workshop could not be successful without the collective minds and collaborative effort of the development community.
 
-This Workshops is a fork of the famous [Substratekitties workshop](https://github.com/substrate-developer-hub/substrate-collectables-workshop), which itself stands on the backs of giants like [Cryptokitties](https://www.cryptokitties.co/), [Cryptozombies](https://cryptozombies.io/), [Docsify](https://docsify.js.org/), [Monaco Editor](https://microsoft.github.io/monaco-editor/), [David Revoy's Cat Avatar Generator](https://framagit.org/Deevad/cat-avatar-generator), and numerous volunteers to report errors and bugs along the way.
+This Workshops is a fork of the famous [Substratekitties workshop](https://github.com/gnunicorn/substrate-verifiable-credentials-workshop), which itself stands on the backs of giants like [Cryptokitties](https://www.cryptokitties.co/), [Cryptozombies](https://cryptozombies.io/), [Docsify](https://docsify.js.org/), [Monaco Editor](https://microsoft.github.io/monaco-editor/), [David Revoy's Cat Avatar Generator](https://framagit.org/Deevad/cat-avatar-generator), and numerous volunteers to report errors and bugs along the way.
 
 We hope this educational material teaches you something new, and in turn, you teach others too.
 
