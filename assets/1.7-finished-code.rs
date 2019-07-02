@@ -2,6 +2,7 @@ use support::{decl_storage, decl_module, StorageMap, dispatch::Result, ensure};
 use system::ensure_signed;
 use runtime_primitives::traits::{As, Hash};
 use parity_codec::{Encode, Decode};
+use core::u32::MAX as MAX_SUBJECT;
 
 pub trait Trait: balances::Trait + timestamp::Trait {}
 
@@ -29,7 +30,9 @@ decl_module! {
             let sender = ensure_signed(origin)?;
             let subject = <SubjectCount<T>>::get();
 
-            ensure!(subject <= MAX_U32, "Exhausted all Subjects");ller than MAX_U32.
+            // An alternative would be to use Rusts internal checking system:
+            // let new_subject = subject.checked_add(1).ok_or( "Exhausted all Subjects");
+            ensure!(subject <= MAX_SUBJECT, "Exhausted all Subjects");
 
             <SubjectCount<T>>::push(subject + 1);
             <Subjects<T>>::insert(subject, sender);

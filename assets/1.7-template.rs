@@ -3,6 +3,7 @@ use support::{decl_storage, decl_module, StorageMap, dispatch::Result};
 use system::ensure_signed;
 use runtime_primitives::traits::{As, Hash};
 use parity_codec::{Encode, Decode};
+// ACTION: import `MAX` from `core::u32` `as MAX_SUBJECT`
 
 pub trait Trait: balances::Trait + timestamp::Trait {}
 
@@ -30,7 +31,7 @@ decl_module! {
             let sender = ensure_signed(origin)?;
             let subject = <SubjectCount<T>>::get();
 
-            // ACTION: use `ensure!` here to verify subject is smaller than MAX_U32.
+            // ACTION: use `ensure!` here to verify subject is smaller than `MAX_SUBJECT`.
 
             <SubjectCount<T>>::push(subject + 1);
             <Subjects<T>>::insert(subject, sender);

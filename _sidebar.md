@@ -22,10 +22,8 @@
     - [Viewing a Structure](docs/viewing-a-structure.md)
     - [Securing issuing](docs/securing-issuing.md)
     - [Creating an Event](docs/creating-an-event.md)
-    - [Tracking All Kitties](docs/tracking-all-kitties.md)
-    - [Owning Multiple Kitties](docs/owning-multiple-kitties.md)
-    - [Viewing Multiple Kitties](docs/viewing-multiple-kitties.md)
-    - [Refactoring Our Code](docs/refactoring-our-code.md)
+    - [Verify a Credential](docs/verify-credential.md)
+    - [Revoke Credential](docs/revoke-credential.md)
 
 - [**Tests**](docs/introduction.md)
 
@@ -33,9 +31,8 @@
     - [Writing Tests](docs/writing-tests.md)
     - [Testing Genesis](docs/testing-genesis.md)
 
-- [**Extras**](Extras/)
+----
 
-- [Glossary](https://docs.substrate.dev/docs/glossary)
-- [Documentation](https://docs.substrate.dev/docs)
+- [Developer Hub](https://substrate.dev/)
 - [Report an Issue](https://github.com/substrate-developer-hub/substrate-collectables-workshop/issues)
 - [r/substrate](https://www.reddit.com/r/substrate)
