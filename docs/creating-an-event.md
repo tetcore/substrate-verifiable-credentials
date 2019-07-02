@@ -15,11 +15,10 @@ Here is an example of an event declaration:
 decl_event!(
     pub enum Event<T>
     where
-        <T as system::Trait>::AccountId,
-        <T as system::Trait>::Balance
+        AccountId = <T as system::Trait>::AccountId,
     {
-        MyEvent(u32, Balance),
-        MyOtherEvent(Balance, AccountId),
+        MyEvent(u32, AccountId),
+        MyOtherEvent(AccountId, Subject, AccountId),
     }
 );
 ```
@@ -31,7 +30,7 @@ Again, if we want to use some custom Substrate types, we need to integrate gener
 The `decl_event!` macro will generate a new `Event` type which you will need to expose in your module. This type will need to inherit some traits like so:
 
 ```rust
-pub trait Trait: balances::Trait {
+pub trait Trait: system::Trait + timestamp::Trait {
     type Event: From<Event<Self>> + Into<<Self as system::Trait>::Event>;
 }
 ```
@@ -62,9 +61,8 @@ Doing that is relatively simple, you just need to provide the values that go alo
 
 ```rust
 let my_value = 1337;
-let my_balance = <T::Balance as As<u64>>::sa(1337);
 
-Self::deposit_event(RawEvent::MyEvent(my_value, my_balance));
+Self::deposit_event(RawEvent::MyEvent(my_value, sender));
 ```
 
 ## Updating `lib.rs` to Include Events
@@ -118,6 +116,6 @@ Use the instructions in the template of this section to help you get your module
 
 #### ** Previous Chapter Solution **
 
-[embedded-code-previous](../assets/2.1-finished-code.rs ':include :type=code embed-previous')
+[embedded-code-previous](../assets/1.8-finished-code.rs ':include :type=code embed-previous')
 
 <!-- tabs:end -->

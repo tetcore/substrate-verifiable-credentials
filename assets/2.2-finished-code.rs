@@ -1,71 +1,77 @@
-use support::{decl_storage, decl_module, StorageValue, StorageMap,
-    dispatch::Result, ensure, decl_event};
+use support::{decl_storage, decl_event, decl_module, StorageMap, dispatch::Result, ensure};
 use system::ensure_signed;
 use runtime_primitives::traits::{As, Hash};
 use parity_codec::{Encode, Decode};
+use core::u32::MAX as MAX_SUBJECT;
+
+pub type Subject = u32;
 
 #[derive(Encode, Decode, Default, Clone, PartialEq)]
 #[cfg_attr(feature = "std", derive(Debug))]
-pub struct Kitty<Hash, Balance> {
-    id: Hash,
-    dna: Hash,
-    price: Balance,
-    gen: u64,
+pub struct Credential<Timestamp, AccountId> {
+    subject: Subject,
+    when: Timestamp,
+    by: AccountId
 }
 
-pub trait Trait: balances::Trait {
+pub trait Trait: system::Trait + timestamp::Trait  {
     type Event: From<Event<Self>> + Into<<Self as system::Trait>::Event>;
 }
 
 decl_event!(
     pub enum Event<T>
     where
-        <T as system::Trait>::AccountId,
-        <T as system::Trait>::Hash
+        AccountId = <T as system::Trait>::AccountId,
     {
-        Created(AccountId, Hash),
+        SubjectCreated(AccountId, u32),
+        CredentialIssued(AccountId, u32, AccountId),
     }
 );
 
 decl_storage! {
     trait Store for Module<T: Trait> as VerifiableCreds {
-        Kitties get(kitty): map T::Hash => Kitty<T::Hash, T::Balance>;
-        KittyOwner get(owner_of): map T::Hash => Option<T::AccountId>;
-        OwnedKitty get(kitty_of_owner): map T::AccountId => T::Hash;
-
-        Nonce: u64;
+        SubjectCount get(subject_count) config(): Subject;
+        Subjects get(subjects): map Subject => T::AccountId;
+        Credentials get(credentials): map (T::AccountId, Subject) => Credential<T::Moment, T::AccountId>;
     }
 }
 
 decl_module! {
     pub struct Module<T: Trait> for enum Call where origin: T::Origin {
-
         fn deposit_event<T>() = default;
 
-        fn create_kitty(origin) -> Result {
+        fn create_subject(origin) -> Result {
+            let sender = ensure_signed(origin)?;
+            let subject = Self::subject_count();
+
+            ensure!(subject <= MAX_SUBJECT, "Exhausted all Subjects");
+
+            <SubjectCount<T>>::push(subject + 1);
+            <Subjects<T>>::insert(subject, sender);
+
+            Self::deposit_event(
+              RawEvent::SubjectCreated(sender, subject)
+            );
+
+            Ok(())
+        }
+
+        fn issue_credential(origin, to: T:AccountId, subject: Subject) -> Result {
             let sender = ensure_signed(origin)?;
 
-            let nonce = <Nonce<T>>::get();
-            let random_hash = (<system::Module<T>>::random_seed(), &sender, nonce)
-                .using_encoded(<T as system::Trait>::Hashing::hash);
+            ensure!(Self::subjects(subject) == sender, "Unauthorized.");
 
-            ensure!(!<KittyOwner<T>>::exists(random_hash), "Kitty already exists");
-
-            let new_kitty = Kitty {
-                id: random_hash,
-                dna: random_hash,
-                price: <T::Balance as As<u64>>::sa(0),
-                gen: 0,
+            let new_cred = Credential {
+                subject: subject,
+                when: <timestamp::Module<T>>::get(),
+                by: sender,
             };
 
-            <Kitties<T>>::insert(random_hash, new_kitty);
-            <KittyOwner<T>>::insert(random_hash, &sender);
-            <OwnedKitty<T>>::insert(&sender, random_hash);
-
-            <Nonce<T>>::mutate(|n| *n += 1);
-
-            Self::deposit_event(RawEvent::Created(sender, random_hash));
-
+            <Credentials<T>>::insert((&sender, subject), new_cred);|
+            Self::deposit_event(
+              RawEvent::CredentialIssued(to, subject, sender)
+            );
+            
             Ok(())
         }
     }
