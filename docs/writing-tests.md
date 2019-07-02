@@ -32,53 +32,29 @@ test template::tests::it_works ... ok
 test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out
 ```
 
-## Test "Create Kitty" Works
+## Test "Add Subject" Works
 
 We've done the heavy lifting in setting up the test mock. From this point forward, it is quite easy to write the tests to interact with your modules.
 
-So far, your Kitties module provides critical functionalities like the ability for anyone to create a kitty.
+So far, your Credentials module provides critical functionalities like the ability for anyone to create a new subject.
 
-Let's write a test to check that `create_kitty_should_work`: 
+Let's write a test to check that `should_add_subject`: 
 
 ```rust
 #[test]
-fn create_kitty_should_work() {
-	with_externalities(&mut build_ext(), || {
-		// create a kitty with account #10.
-		assert_ok!(Kitties::create_kitty(Origin::signed(10)));
-
-		// check that there is now 1 kitty in storage
-		assert_eq!(Kitties::all_kitties_count(), 1);
-
-		// check that account #10 owns 1 kitty
-		assert_eq!(Kitties::owned_kitty_count(10), 1);
-		
-		// check that some random account #5 does not own a kitty
-		assert_eq!(Kitties::owned_kitty_count(5), 0);
-
-		// check that this kitty is specifically owned by account #10
-		let hash = Kitties::kitty_by_index(0);
-		assert_eq!(Kitties::owner_of(hash), Some(10));
-
-		let other_hash = Kitties::kitty_of_owner_by_index((10, 0));
-		assert_eq!(hash, other_hash);
-	})
-}
+  fn should_add_subject() {
+    with_externalities(&mut new_test_ext(), || {
+        assert_ok!(
+            VerifiableCreds::create_subject(Origin::signed(3)));
+			// should be 3 because we configured
+			// our genesis config to start at 3
+        assert_eq!(
+            VerifiableCreds::subjects(3), 3);
+    });
+  }
 ```
 
-Notable things from the above snippet:
-
-- Notice how using a `u64` as `AccountId` is handy. Your account is simply referred to as `10` rather than a special type.
-- Notice how we've used the same `Kitties` to call a getter function (e.g. `kitty_of_owner_by_index`) and a normal dispatch function (e.g. `create_kitty` from `decl_module!`).
-- Notice that you can use `Kitties` to call even the module functions as well (anything inside `impl Module<T>`)! Hence, you could (and should) have a test in which you only test the internal `mint()` function that is not directly accessible.
-
-> **Note:** When accessing storage, you can also use the following alternative syntax in lieu of `Kitties::get()`: 
-
-```rust
-use super::KittyOwner;
-use support::StorageMap; //Or: StorageValue, DoubleMap, etc. depending on the value type
-assert_eq!(<KittyOwner<KittiesTest>>::get(hash), Some(10));
-```
+Notice how using a `u64` as `AccountId` is handy. Your account is simply referred to as `3` rather than a special type.
 
 ## Recommended Test Pattern
 
@@ -95,19 +71,11 @@ You may want to frequently make use of:
 ## Your Turn!
 
 Now it is your turn. To complete this section, try writing tests for the following expectations:
-  - Owner can successfully transfer a kitty.
-  - A non-owner will fail to transfer a kitty. Specifically, make sure your test expectedly fails with an error message of: `"'from' account does not own this kitty"`
+  - Issuer can successfully issue a credential.
+  - Issuing as a non-issuer fails. Specifically, make sure your test expectedly fails with an error message of: `"Unauthorized"`.
+  - Revoking works as expected - maybe by testing verify at the same time?
 
 You are encouraged to write as many tests as you can at this point. 
-
-## Challenge
-After a few tests, you might notice that your tests require some common, manual setup (e.g. create 10 kitties for 10 accounts). Repeating this setup in each test is... well, not fun. 
-
-Thankfully, __not repeating yourself__ is one of the main design intentions behind Substrate and there is a way to get around it.
-
-Our challenge to the reader is to extend the test functionality by giving Kitties runtime a `genesis config`, which allows you to preconfigure the state of the chain before the first block. A genesis config is useful in scenarios when we want to initialize the chain to have certain parameters for subsequent transactions. In this case, it could be helpful to have some initial kitties to start the game and to make subsequent testing easier.
-
-You can see another sample tutorial which implements the genesis config [here](https://docs.substrate.dev/docs/building-the-substrate-tcr-runtime#section-using-the-genesis-config).
 
 <!-- tabs:start -->
 

@@ -20,14 +20,16 @@ Next, we import some test dependencies from external modules. Most of these modu
 A typical Substrate `test` uses the following external modules:
 
 ```rust
-use super::*;
-use support::{impl_outer_origin, assert_ok};
-use runtime_io::{with_externalities, TestExternalities};
-use primitives::{H256, Blake2Hasher};
-use runtime_primitives::{
-	BuildStorage, traits::{BlakeTwo256, IdentityLookup},
-	testing::{Digest, DigestItem, Header}
-};
+  use super::*;
+
+  use primitives::{Blake2Hasher, H256};
+  use runtime_io::{with_externalities, TestExternalities};
+  use runtime_primitives::{
+    testing::{Digest, DigestItem, Header},
+    traits::{BlakeTwo256, IdentityLookup},
+    BuildStorage,
+  };
+  use support::{assert_noop, assert_ok, impl_outer_origin};
 ```
 
 Notably, `runtime_io` imports the following:
@@ -49,49 +51,46 @@ with_externalities(some_externality, || {
 Don't forget, we also want to construct an Origin type for the test runtime. This step is usually called automatically by the `construct_runtime` macro. But during testing, we have do so manually.
 
 ```rust
-impl_outer_origin! {
-	pub enum Origin for KittiesTest {}
-}
+  impl_outer_origin! {
+    pub enum Origin for VerifiableCredsTest {}
+  }
 ```
 
 ## Construct a Mock Runtime
 
 Now we are ready to construct a mock runtime for our tests. 
 
-First, we declare a main configuration type `KittiesTest`. `KittiesTest` will implement each of the configuration traits of modules used by the Kitties runtime, such as `system` and `balances`.
+First, we declare a main configuration type `VerifiableCredsTest`. `VerifiableCredsTest` will implement each of the configuration traits of modules used by the Kitties runtime, such as `system` and `timestamp`.
 
 This mock runtime can be structured as follows:
 
 ```rust
 #[derive(Clone, Eq, PartialEq)]
-pub struct KittiesTest;
+  pub struct VerifiableCredsTest;
 
-// Implement the system module traits
-impl system::Trait for KittiesTest {}
-
-// Implement the balances module traits
-impl balances::Trait for KittiesTest {}
-
-// Implement the trait for our own module, `super::Trait`
-impl super::Trait for KittiesTest {}
+  impl system::Trait for VerifiableCredsTest {
+  }
+  impl timestamp::Trait for VerifiableCredsTest {
+  }
+  impl Trait for VerifiableCredsTest {
+  }
 ```
 
 We then implement the required traits for each module. For example, the `system` module requires the following traits implementations:
 
 ```rust
-impl system::Trait for KittiesTest {
-	type Origin = Origin;
-	type Index = u64;
-	type BlockNumber = u64;
-	type Hash = H256;
-	type Hashing = BlakeTwo256;
-	type Digest = Digest;
-	type AccountId = u64;
-	type Lookup = IdentityLookup<Self::AccountId>;
-	type Header = Header;
-	type Event = ();
-	type Log = DigestItem;
-}
+  impl system::Trait for VerifiableCredsTest {
+    type Origin = Origin;
+    type Index = u64;
+    type BlockNumber = u64;
+    type Hash = H256;
+    type Hashing = BlakeTwo256;
+    type Digest = Digest;
+    type AccountId = u64;
+    type Lookup = IdentityLookup<u64>;
+    type Header = Header;
+    type Event = ();
+    type Log = DigestItem;
 ```
 
 > **Note:** In the test mock, we are able to simplify the value types passed into some of the traits. 
@@ -105,19 +104,30 @@ At this point, we are ready to access and build the modules we just implemented 
 Let's assign a type alias to the Kitties module in order to easily access its methods going forward.
 
 ```rust
-type Kitties = super::Module<KittiesTest>;
+type VerifiableCreds = Module<VerifiableCredsTest>;
 ```
 
-> **Note:** All modules are built in a way that the `Module` struct wraps all functions attached to it, hence the syntax `system::Module<KittiesTest>`.
+> **Note:** All modules are built in a way that the `Module` struct wraps all functions attached to it, hence the syntax `Module<VerifiableCredsTest>`.
 
 Finally, we use a wrapper function to create the previously mentioned `TestExternalities`:
 
 ```rust
 fn build_ext() -> TestExternalities<Blake2Hasher> {
-	let mut t = system::GenesisConfig::<KittiesTest>::default().build_storage().unwrap().0;
-	t.extend(balances::GenesisConfig::<KittiesTest>::default().build_storage().unwrap().0);
-	// t.extend(GenesisConfig::<KittiesTest>::default().build_ext().unwrap().0);
-	t.into()
+	let mut t = system::GenesisConfig::<Test>::default()
+      .build_storage()
+      .unwrap()
+      .0;
+    t.extend(
+      GenesisConfig::<Test> {
+        subjects: vec![(1, 1), (2, 2)],
+        subject_count: 3,
+      }
+      .build_storage()
+      .unwrap()
+      .0,
+    );
+    t.into()
+  }
 }
 ```
 
