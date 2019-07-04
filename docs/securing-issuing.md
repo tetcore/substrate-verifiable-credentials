@@ -19,7 +19,7 @@ Now that you are a Substrate runtime developer, you will have to be conscious of
 
 ## Rest `ensure`'d
 
-Similarly to `ensure_signed!` the regular `ensure!`-macro allows us to assert a regular boolean. As with `ensure_signed`, execution will stop if the `ensure!`-macro asserts to false. We can use this, together with the `subjects` map to ensure the `sender` is allowed to issue the given `credential`. 
+Similarly to `ensure_signed` the regular `ensure!`-macro allows us to assert a regular boolean. As with `ensure_signed`, execution will stop if the `ensure!`-macro asserts to false. We can use this, together with the `subjects` map to ensure the `sender` is allowed to issue the given `credential`. 
 
 There is a second potential vulnerbility in our current code though, did you spot it yet? As a hint, what happens if `SubjectCount` reached `MAX_U32`? While this is very unlikely to happen soon, we are working with a lower level code base in runtimes and need to take care of these border- and edge cases from early on. For now, let's just use the same `ensure!` to check that the value will not overflow on `createSubject`.
 
@@ -30,7 +30,7 @@ One other issue, you might have noticed by now, is that our SubjectCount starts 
 In order to prevent that problem, we should set the initial value in the genesis config. To allow this, we need to extend the definition of our module to contain the `Config` trait:
 
 ```rust
-		VerifiableCreds: verifiablecreds::{Module, Call, Storage, Event<T>, Config<T>},
+		VerifiableCreds: verifiablecreds::{Module, Call, Storage, Config<T>},
 ```
 
 Now you can mark the state variables you want to allow to be configured by marking them with `config(name_of_variable)` - you can omit the name if there is already a getter configured:
