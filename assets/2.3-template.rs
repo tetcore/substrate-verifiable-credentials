@@ -64,7 +64,7 @@ decl_module! {
 
             ensure!(subject <= MAX_SUBJECT, "Exhausted all Subjects");
 
-            <SubjectCount<T>>::push(subject + 1);
+            <SubjectCount<T>>::put(subject + 1);
             <Subjects<T>>::insert(subject, sender);
 
             Self::deposit_event(

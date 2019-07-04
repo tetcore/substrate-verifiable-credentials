@@ -34,7 +34,7 @@ decl_module! {
             // let new_subject = subject.checked_add(1).ok_or( "Exhausted all Subjects");
             ensure!(subject <= MAX_SUBJECT, "Exhausted all Subjects");
 
-            <SubjectCount<T>>::push(subject + 1);
+            <SubjectCount<T>>::put(subject + 1);
             <Subjects<T>>::insert(subject, sender);
 
             Ok(())

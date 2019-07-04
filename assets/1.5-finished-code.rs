@@ -17,7 +17,7 @@ decl_module! {
             let sender = ensure_signed(origin)?;
             let subject = <SubjectCount<T>>::get();
 
-            <SubjectCount<T>>::push(subject + 1);
+            <SubjectCount<T>>::put(subject + 1);
             <Subjects<T>>::insert(subject, sender);
 
             Ok(())

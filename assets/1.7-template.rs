@@ -34,7 +34,7 @@ decl_module! {
 
             // ACTION: use `ensure!` here to verify subject is smaller than `MAX_SUBJECT`.
 
-            <SubjectCount<T>>::push(subject + 1);
+            <SubjectCount<T>>::put(subject + 1);
             <Subjects<T>>::insert(subject, sender);
 
             Ok(())
