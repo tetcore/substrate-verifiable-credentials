@@ -88,7 +88,7 @@ Finally, we can add this line at the end of our `construct_runtime!` definition:
 // `lib.rs`
 ...
 construct_runtime!(
-	pub enum Runtime with Log(InternalLog: DigestItem<Hash, Ed25519AuthorityId>) where
+	pub enum Runtime with Log(InternalLog: DigestItem<Hash, AuthorityId, AuthoritySignature>) where
 		Block = Block,
 		NodeBlock = opaque::Block,
 		UncheckedExtrinsic = UncheckedExtrinsic
