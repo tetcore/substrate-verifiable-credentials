@@ -4,7 +4,7 @@ use runtime_primitives::traits::{As, Hash};
 use parity_codec::{Encode, Decode};
 use core::u32::MAX as MAX_SUBJECT;
 
-pub trait Trait: balances::Trait + timestamp::Trait {}
+pub trait Trait: system::Trait + timestamp::Trait {}
 
 // ACTION: add a global `Subject` type alias here
 // ACTION: replace all occurances of `u32` with that alias

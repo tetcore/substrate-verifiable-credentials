@@ -2,7 +2,7 @@
 use support::{decl_storage, decl_module, StorageValue, dispatch::Result};
 use system::ensure_signed;
 
-pub trait Trait: balances::Trait + timestamp::Trait {}
+pub trait Trait: system::Trait + timestamp::Trait {}
 
 decl_storage! {
     trait Store for Module<T: Trait> as VerifiableCreds {

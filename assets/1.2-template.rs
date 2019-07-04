@@ -3,7 +3,7 @@
 //         all these dependencies import from `support`.
 use support::{decl_storage, decl_module};
 
-pub trait Trait: balances::Trait + timestamp::Trait {}
+pub trait Trait: system::Trait + timestamp::Trait {}
 
 decl_storage! {
     trait Store for Module<T: Trait> as VerifiableCreds {

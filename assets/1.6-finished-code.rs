@@ -3,7 +3,7 @@ use system::ensure_signed;
 use runtime_primitives::traits::{As, Hash};
 use parity_codec::{Encode, Decode};
 
-pub trait Trait: balances::Trait + timestamp::Trait {}
+pub trait Trait: system::Trait + timestamp::Trait {}
 
 #[derive(Encode, Decode, Default, Clone, PartialEq)]
 #[cfg_attr(feature = "std", derive(Debug))]

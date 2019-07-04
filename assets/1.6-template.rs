@@ -3,7 +3,7 @@ use system::ensure_signed;
 // ACTION: Import `runtime_primitives::traits::{As, Hash}`
 // ACTION: Import `parity_codec::{Encode, Decode}`
 
-pub trait Trait: balances::Trait + timestamp::Trait {}
+pub trait Trait: system::Trait + timestamp::Trait {}
 
 // NOTE: We have added this struct template for you
 #[derive(Encode, Decode, Default, Clone, PartialEq)]
