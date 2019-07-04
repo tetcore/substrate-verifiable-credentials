@@ -1,7 +1,7 @@
 Interacting With Your Node
 ===
 
-By the end of this tutorial we will have you create your own custom UI to interact with your collectables blockchain. In the meantime, we can use the [Polkadot-JS](https://polkadot.js.org) Apps UI which is a generalized interface that adapts to your custom node.
+As we are building an infrastructure chain without any UI itself, we will use the [Polkadot-JS](https://polkadot.js.org) Apps UI which is a generalized interface that adapts to your custom node, to interact with our chain during development
 
 Open **Chrome** and navigate to:
 

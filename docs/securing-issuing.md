@@ -1,4 +1,4 @@
-## Securing the issuing credentials
+## Securing the issuing of credentials
 
 You might have noticed, that at this point anyone can issue credentials to anyone, regardless of their connection to the subject - nor do we check whether the referenced subject even exists in the first place. That is obviously less than ideal.
 
@@ -17,7 +17,7 @@ This is necessary for blockchain systems since you may want to track things like
 Now that you are a Substrate runtime developer, you will have to be conscious of any changes you make to the state of your blockchain, and ensure that it follows the **"verify first, write last"** pattern. We will be helping you do this throughout the tutorial.
 
 
-## Rest `ensure`d
+## Rest `ensure`'d
 
 Similarly to `ensure_signed!` the regular `ensure!`-macro allows us to assert a regular boolean. As with `ensure_signed`, execution will stop if the `ensure!`-macro asserts to false. We can use this, together with the `subjects` map to ensure the `sender` is allowed to issue the given `credential`. 
 
