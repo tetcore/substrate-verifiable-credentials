@@ -100,6 +100,7 @@ construct_runtime!(
 		Indices: indices,
 		Balances: balances,
 		Sudo: sudo,
+		TemplateModule: template::{Module, Call, Storage, Event<T>},
 		// Add this line
 		VerifiableCreds: verifiablecreds::{Module, Call, Storage},
 	}
