@@ -1,4 +1,4 @@
-// ACTION: Update StorageValue to StorageMap to support mappings
+// ACTION: Add StorageMap to support mappings
 use support::{decl_storage, decl_module, StorageValue, dispatch::Result};
 use system::ensure_signed;
 

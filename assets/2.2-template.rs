@@ -1,5 +1,5 @@
 // ACTION: Add `support::decl_event` to use the `decl_event!` macro
-use support::{decl_storage, decl_module, StorageMap, dispatch::Result, ensure};
+use support::{decl_storage, decl_module, StorageValue, StorageMap, dispatch::Result, ensure};
 use system::ensure_signed;
 use runtime_primitives::traits::{As, Hash};
 use parity_codec::{Encode, Decode};

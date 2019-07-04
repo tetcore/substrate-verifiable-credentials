@@ -1,4 +1,4 @@
-use support::{decl_storage, decl_module, StorageMap, dispatch::Result};
+use support::{decl_storage, decl_module, StorageValue, StorageMap, dispatch::Result};
 use system::ensure_signed;
 
 pub trait Trait: balances::Trait {}
