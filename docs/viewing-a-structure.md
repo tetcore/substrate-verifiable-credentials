@@ -25,7 +25,7 @@ Go back to the **Settings** app. Under the **Developer** section, you can either
     "Credential": {
         "subject": "u32",
         "when": "Moment",
-        "by": "AccountId",
+        "by": "AccountId"
     }
 }
 ```
