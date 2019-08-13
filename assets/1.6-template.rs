@@ -19,7 +19,7 @@ decl_storage! {
     trait Store for Module<T: Trait> as VerifiableCreds {
         SubjectCount: u32;
         Subjects: map u32 => T::AccountId;
-        // ACTION: Add a map variable to be named `Credentials` to store a `Credential<T::Moment, T::Account>`
+        // ACTION: Add a map variable to be named `Credentials` to store a `Credential<T::Moment, T::AccountId>`
         //         for every `(T:AccountId, u32)` (per subject).
         // ACTION: Add a getter function named `credentials`
     }
@@ -29,7 +29,7 @@ decl_module! {
 
         fn create_subject(origin) -> Result {
             let sender = ensure_signed(origin)?;
-            let subject = SubjectCount<T>::get();
+            let subject = <SubjectCount<T>>::get();
 
             <SubjectCount<T>>::put(subject + 1);
             <Subjects<T>>::insert(subject, sender);
