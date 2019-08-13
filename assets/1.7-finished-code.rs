@@ -20,7 +20,6 @@ decl_storage! {
         Subjects: config(subjects) map u32 => T::AccountId;
         Credentials get(credentials): map (T::AccountId, u32) => Credential<T::Moment, T::AccountId>;
     }
-    extra_genesis_skip_phantom_data_field;
 }
 
 
@@ -52,7 +51,7 @@ decl_module! {
                 by: sender,
             };
 
-            <Credentials<T>>::insert((&sender, subject), new_cred);
+            <Credentials<T>>::insert((to, subject), new_cred);
 
             Ok(())
         }

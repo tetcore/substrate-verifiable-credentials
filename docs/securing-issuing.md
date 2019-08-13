@@ -30,7 +30,7 @@ One other issue, you might have noticed by now, is that our SubjectCount starts 
 In order to prevent that problem, we should set the initial value in the genesis config. To allow this, we need to extend the definition of our module to contain the `Config` trait:
 
 ```rust
-		VerifiableCreds: verifiablecreds::{Module, Call, Storage, Event<T>, Config<T>},
+		VerifiableCreds: verifiablecreds::{Module, Call, Storage, Config<T>},
 ```
 
 Now you can mark the state variables you want to allow to be configured by marking them with `config(name_of_variable)` - you can omit the name if there is already a getter configured:

@@ -52,7 +52,7 @@ decl_module! {
                 by: sender,
             };
 
-            <Credentials<T>>::insert((&sender, subject), new_cred);
+            <Credentials<T>>::insert((to, subject), new_cred);
 
             Ok(())
         }
