@@ -42,6 +42,19 @@ Now you can mark the state variables you want to allow to be configured by marki
     }
 ```
 
+### Genesis Config
+
+Now that we can configure the Store values, we also _have to_ provide the values it starts out with. As with everything else mutable on the runtime, that is defined in the `GensisConfig` - and the compiler will error, if we don't provide them. So after editing the initial values, let's add the new entry to the `src/chainspec.rs`:
+
+```rust
+		verifiablecreds: Some(VerifiableCredsConfig {
+			subjects: vec![(1, account_key("Alice")), (2, account_key("Bob"))],
+			subject_count: 3,
+		}),
+```
+
+In this example, we start out with the next `subject_count` counter at `3`, because we already have the two entries for the account key of `Alice` and `Bob`.
+
 ## Your turn
 
 Now it is up to you to make our code more secure and robust: add gensis configurability to the `SubjectCount`, ensure it doesn't overflow when adding new subjects and verify that the origin is actually allowed to do so when issuing credentials.
