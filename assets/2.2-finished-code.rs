@@ -47,7 +47,7 @@ decl_module! {
             ensure!(subject <= MAX_SUBJECT, "Exhausted all Subjects");
 
             <SubjectCount<T>>::put(subject + 1);
-            <Subjects<T>>::insert(subject, sender);
+            <Subjects<T>>::insert(subject, sender.clone());
 
             Self::deposit_event(
               RawEvent::SubjectCreated(sender, subject)
@@ -64,10 +64,10 @@ decl_module! {
             let new_cred = Credential {
                 subject: subject,
                 when: <timestamp::Module<T>>::get(),
-                by: sender,
+                by: sender.clone(),
             };
 
-            <Credentials<T>>::insert((&sender, subject), new_cred);
+            <Credentials<T>>::insert((to.clone(), subject), new_cred);
             Self::deposit_event(
               RawEvent::CredentialIssued(to, subject, sender)
             );
