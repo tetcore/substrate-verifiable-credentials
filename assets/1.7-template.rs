@@ -19,6 +19,7 @@ decl_storage! {
     trait Store for Module<T: Trait> as VerifiableCreds {
         // ACTION: make this configurable
         SubjectCount: u32;
+        // ACTION: make this configurable, too
         Subjects: map u32 => T::AccountId;
         Credentials get(credentials): map (T::AccountId, u32) => Credential<T::Moment, T::AccountId>;
     }
@@ -58,3 +59,4 @@ decl_module! {
     }
 }
 // ACTION: don't forget to add `Config<T>` to the `lib.rs`
+// ACTION: and the defaults to  `src/chain_spec.rs`

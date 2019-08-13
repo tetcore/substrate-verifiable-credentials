@@ -17,9 +17,10 @@ pub struct Credential<Timestamp, AccountId> {
 decl_storage! {
     trait Store for Module<T: Trait> as VerifiableCreds {
         SubjectCount config(subject_count): u32;
-        Subjects: map u32 => T::AccountId;
+        Subjects: config(subjects) map u32 => T::AccountId;
         Credentials get(credentials): map (T::AccountId, u32) => Credential<T::Moment, T::AccountId>;
     }
+    extra_genesis_skip_phantom_data_field;
 }
 
 
