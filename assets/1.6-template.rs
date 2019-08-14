@@ -9,7 +9,7 @@ pub trait Trait: system::Trait + timestamp::Trait {}
 #[derive(Encode, Decode, Default, Clone, PartialEq)]
 #[cfg_attr(feature = "std", derive(Debug))]
 pub struct Credential<Timestamp, AccountId> {
-    // ACTION: Define the properties of your kitty struct here
+    // ACTION: Define the properties of your credential struct here
     //         - `subject` as a `u32` 
     //         - `when` as a `Timestamp`
     //         - `by` as a `AccountId`
