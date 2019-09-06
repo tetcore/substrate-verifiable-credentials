@@ -81,7 +81,7 @@ decl_module! {
             Ok(())
         }
 
-        fn issue_credential(origin, to: T:AccountId, subject: Subject) -> Result {
+        fn issue_credential(origin, to: T::AccountId, subject: Subject) -> Result {
             let sender = ensure_signed(origin)?;
 
             ensure!(Self::subjects(subject) == sender, "Unauthorized.");

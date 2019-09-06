@@ -49,7 +49,7 @@ decl_module! {
         }
 
         // ACTION: update this type definition
-        fn issue_credential(origin, to: T:AccountId, subject: u32) -> Result {
+        fn issue_credential(origin, to: T::AccountId, subject: u32) -> Result {
             let sender = ensure_signed(origin)?;
 
             // ACTION: replace this getter
