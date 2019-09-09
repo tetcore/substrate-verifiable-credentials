@@ -40,8 +40,8 @@ decl_module! {
 
             Ok(())
         }
-        
-        fn issue_credential(origin, to: T:AccountId, subject: u32) -> Result {
+
+        fn issue_credential(origin, to: T::AccountId, subject: u32) -> Result {
             let sender = ensure_signed(origin)?;
             // ACTION: fetch the account stored at `subject`
             // ACTION: and `ensure!` it equals the `sender`.

@@ -20,7 +20,7 @@ decl_storage! {
         SubjectCount: u32;
         Subjects: map u32 => T::AccountId;
         // ACTION: Add a map variable to be named `Credentials` to store a `Credential<T::Moment, T::AccountId>`
-        //         for every `(T:AccountId, u32)` (per subject).
+        //         for every `(T::AccountId, u32)` (per subject).
         // ACTION: Add a getter function named `credentials`
     }
 }
@@ -37,7 +37,7 @@ decl_module! {
             Ok(())
         }
         // NOTE: We added a new function
-        fn issue_credential(origin, to: T:AccountId, subject: u32) -> Result {
+        fn issue_credential(origin, to: T::AccountId, subject: u32) -> Result {
             let sender = ensure_signed(origin)?;
 
             // ACTION: Create a `Credential` object named `new_cred` here for the given subject

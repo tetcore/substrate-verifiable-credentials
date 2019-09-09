@@ -35,7 +35,7 @@ decl_module! {
             Ok(())
         }
         // NOTE: We added a new function
-        fn issue_credential(origin, to: T:AccountId, subject: u32) -> Result {
+        fn issue_credential(origin, to: T::AccountId, subject: u32) -> Result {
             let sender = ensure_signed(origin)?;
 
             let new_cred = Credential {
