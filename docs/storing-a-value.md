@@ -106,6 +106,6 @@ As you can see, we added some functionality in our code that we had not yet impo
 use system::ensure_signed;
 ```
 
-As mentioned in "common patterns" section, Rust will be your friend throughout runtime development, and *should mostly* help you overcome any issues in your code. Moving forward we will try to mention whenever you need to import a new library, but don't be worried when the compiler sends you some errors. Instead embrace the helpful suggestions it might be giving you.
+As mentioned in the "common patterns" section, Rust will be your friend throughout runtime development, and *should mostly* help you overcome any issues in your code. Moving forward we will try to mention whenever you need to import a new library, but don't be worried when the compiler sends you some errors. Instead embrace the helpful suggestions it might be giving you.
 
 ---
