@@ -43,7 +43,7 @@ From the [Rust docs](https://doc.rust-lang.org/book/ownership.html):
 
 You will see throughout the tutorial we will add an ampersand (`&`) in front of some variables which implies that we are borrowing the value. This is useful if we need to reuse the value multiple times throughout a function.
 
-It basically hinders you from doing stupid mistakes in handling memory - so be thankful if the Rust compiler advises you not to do a certain thing.
+It basically hinders you from making stupid mistakes in handling memory - so be thankful if the Rust compiler advises you not to do a certain thing.
 
 ### Traits
 
