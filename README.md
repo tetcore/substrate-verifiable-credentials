@@ -1,6 +1,7 @@
 # [Substrate Verifiable Credentials][main link]
-> The interactive hands-on build-your-first-blockchain with [Substrate][] workshop
+> An interactive hands-on build-your-first-blockchain with [Substrate][] workshop
 
+This tutorial targets Substrate v1.0. For more updated tutorials, see https://substrate.dev/tutorials
 
 ## What is this?
 
