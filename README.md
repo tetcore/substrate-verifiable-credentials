@@ -43,7 +43,7 @@ We hope this educational material teaches you something new, and in turn, you te
 
 ---
 
-[main link]: https://substrate-developer-hub.github.io/substrate-collectables-workshop/
+[main link]: https://substrate.dev/substrate-verifiable-credentials/
 [feedback]: https://docs.substrate.dev/docs/feedback
 [Substrate]: https://www.parity.io/substrate/
 [Substrate docs]: https://docs.substrate.dev/
